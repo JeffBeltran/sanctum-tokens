@@ -18,21 +18,30 @@ use Illuminate\Support\Facades\Route;
 //     //
 // });
 
-Route::get('tokens/{id}', function ($id) {
-  return \App\User::with('tokens')
+/**
+ * Get tokes for provided user id
+ */
+Route::get('tokens/{id}', function ($id, Request $request) {
+  $userModel = get_class($request->user());
+
+  return $userModel
+    ::with('tokens')
     ->where('id', $id)
     ->first();
 });
 
 Route::post('tokens/{id}', function ($id, Request $request) {
-  $user = \App\User::find($id);
+  $userModel = get_class($request->user());
+  $user = $userModel::find($id);
   $token = $user->createToken($request->name);
 
   return $token->plainTextToken;
 });
 
 Route::post('tokens/{id}/revoke', function ($id, Request $request) {
-  $user = \App\User::with('tokens')
+  $userModel = get_class($request->user());
+  $user = $userModel
+    ::with('tokens')
     ->where('id', $id)
     ->first();
 
