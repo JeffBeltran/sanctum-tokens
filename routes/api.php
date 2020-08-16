@@ -22,31 +22,41 @@ use Illuminate\Support\Facades\Route;
  * Get tokes for provided user id
  */
 Route::get('tokens/{id}', function ($id, Request $request) {
-  $userModel = get_class($request->user());
+    $userModel = get_class($request->user());
 
-  return $userModel
-    ::with('tokens')
-    ->where('id', $id)
-    ->first();
+    return $userModel
+        ::with('tokens')
+        ->where('id', $id)
+        ->first();
 });
 
 Route::post('tokens/{id}', function ($id, Request $request) {
-  $userModel = get_class($request->user());
-  $user = $userModel::find($id);
-  $token = $user->createToken($request->name);
+    $userModel = get_class($request->user());
+    $user = $userModel::find($id);
 
-  return $token->plainTextToken;
+
+    $abilities = $request->abilities == ""  ? ['*']
+        : collect(explode(',', $request->abilities))
+            ->map(function ($item) {
+                return trim($item);
+            })
+            ->toArray();
+
+
+    $token = $user->createToken($request->name,$abilities);
+
+    return $token->plainTextToken;
 });
 
 Route::post('tokens/{id}/revoke', function ($id, Request $request) {
-  $userModel = get_class($request->user());
-  $user = $userModel
-    ::with('tokens')
-    ->where('id', $id)
-    ->first();
+    $userModel = get_class($request->user());
+    $user = $userModel
+        ::with('tokens')
+        ->where('id', $id)
+        ->first();
 
-  return $user
-    ->tokens()
-    ->where('id', $request->token_id)
-    ->delete();
+    return $user
+        ->tokens()
+        ->where('id', $request->token_id)
+        ->delete();
 });
