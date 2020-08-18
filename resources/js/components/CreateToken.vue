@@ -7,19 +7,41 @@
       class="bg-white rounded-lg shadow-lg overflow-hidden w-action-fields"
     >
       <div>
-        <h2
-          class="border-b border-40 py-8 px-8 text-90 font-normal text-xl"
-        >Create Personal Access Token</h2>
+        <h2 class="border-b border-40 py-8 px-8 text-90 font-normal text-xl">
+          Create Personal Access Token
+        </h2>
         <div>
           <div class="action">
-            <div class="flex border-b border-40">
-              <div class="w-1/5 px-8 py-6">
-                <label for="name" class="inline-block text-80 pt-2 leading-tight">Name</label>
-              </div>
-              <div class="py-6 px-8 w-1/2">
-                <slot></slot>
+            <div class="border-b border-40">
+              <div class="flex w-full">
+                <div class="w-1/5 px-8 py-6">
+                  <label
+                    for="name"
+                    class="inline-block text-80 pt-2 leading-tight"
+                    >Name</label
+                  >
+                </div>
+                <div class="py-6 px-8 w-1/2">
+                  <slot name="name"></slot>
 
-                <div class="help-text help-text mt-2"></div>
+                  <div class="help-text help-text mt-2"></div>
+                </div>
+              </div>
+              <div class="flex w-full">
+                <div class="w-1/5 px-8 py-6">
+                  <label
+                    for="scopes"
+                    class="inline-block text-80 pt-2 leading-tight"
+                    >Abilities</label
+                  >
+                </div>
+                <div class="py-6 px-8 w-1/2">
+                  <slot name="abilities"></slot>
+
+                  <div class="help-text help-text mt-2">
+                    Comma seperated list of abilities to apply to token
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -31,9 +53,15 @@
             @click.prevent="handleCancelledCreate"
             type="button"
             class="btn btn-link dim cursor-pointer text-80 ml-auto mr-6"
-          >{{ __('Cancel') }}</button>
-          <button dusk="confirm-action-button" type="submit" class="btn btn-default btn-primary">
-            <span>{{ __('Create Token') }}</span>
+          >
+            {{ __("Cancel") }}
+          </button>
+          <button
+            dusk="confirm-action-button"
+            type="submit"
+            class="btn btn-default btn-primary"
+          >
+            <span>{{ __("Create Token") }}</span>
           </button>
         </div>
       </div>
@@ -70,7 +98,7 @@ export default {
      */
     handleCancelledCreate() {
       this.$emit("cancelled-create");
-    }
-  }
+    },
+  },
 };
 </script>

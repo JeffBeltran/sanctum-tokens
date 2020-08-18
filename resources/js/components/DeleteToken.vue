@@ -7,11 +7,11 @@
     >
       <div class="p-8">
         <heading :level="2" class="mb-6">
-          {{
-          __('Delete Token')
-          }}
+          {{ __("Delete Token") }}
         </heading>
-        <p class="text-80 leading-normal">Are you sure you want to delete the {{token.name}} token?</p>
+        <p class="text-80 leading-normal">
+          Are you sure you want to delete the {{ token.name }} token?
+        </p>
       </div>
 
       <div class="bg-30 px-6 py-3 flex">
@@ -20,14 +20,18 @@
             type="button"
             @click.prevent="handleClose"
             class="btn text-80 font-normal h-9 px-3 mr-3 btn-link"
-          >{{ __('Cancel') }}</button>
+          >
+            {{ __("Cancel") }}
+          </button>
 
           <button
             id="confirm-delete-button"
             ref="confirmButton"
             type="submit"
             class="btn btn-default btn-danger"
-          >{{ __('Delete Token') }}</button>
+          >
+            {{ __("Delete Token") }}
+          </button>
         </div>
       </div>
     </form>
@@ -39,8 +43,8 @@ export default {
   props: {
     token: {
       required: true,
-      type: Object
-    }
+      type: Object,
+    },
   },
   methods: {
     handleClose() {
@@ -48,13 +52,13 @@ export default {
     },
     handleConfirm() {
       this.$emit("confirm");
-    }
+    },
   },
   /**
    * Mount the component.
    */
   mounted() {
     this.$refs.confirmButton.focus();
-  }
+  },
 };
 </script>

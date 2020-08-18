@@ -4,12 +4,20 @@
     <div class="flex" style>
       <div class="w-full flex items-center">
         <div class="flex-no-shrink ml-auto mb-6">
-          <button @click="showAddModal = true" class="btn btn-default btn-primary">Create Token</button>
+          <button
+            @click="showAddModal = true"
+            class="btn btn-default btn-primary"
+          >
+            Create Token
+          </button>
         </div>
       </div>
     </div>
     <div class="card">
-      <div class="overflow-hidden overflow-x-auto relative" v-if="tokens.length">
+      <div
+        class="overflow-hidden overflow-x-auto relative"
+        v-if="tokens.length"
+      >
         <table class="table w-full" cellspacing="0" cellpadding="0">
           <thead>
             <tr>
@@ -50,24 +58,43 @@
               d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"
             />
           </svg>
-          <h3 class="text-base text-80 font-normal mb-6">No Tokens For User.</h3>
+          <h3 class="text-base text-80 font-normal mb-6">
+            No Tokens For User.
+          </h3>
           <div>
             <button
               @click="showAddModal = true"
               class="btn btn-sm btn-outline inline-flex items-center focus:outline-none focus:shadow-outline active:outline-none active:shadow-outline"
-            >Create Token</button>
+            >
+              Create Token
+            </button>
           </div>
         </div>
       </div>
     </div>
     <portal to="modals" transition="fade-transition">
-      <create-token v-if="showAddModal" @create="createToken" @cancelled-create="closeModal">
+      <create-token
+        v-if="showAddModal"
+        @create="createToken"
+        @cancelled-create="closeModal"
+      >
         <input
+          slot="name"
           v-model="tokenName"
           id="name"
           list="name-list"
           type="text"
           placeholder="Name"
+          class="w-full form-control form-input form-input-bordered"
+        />
+
+        <input
+          slot="abilities"
+          v-model="tokenAbilities"
+          id="abilities"
+          list="abilities-list"
+          type="text"
+          placeholder="Abilities"
           class="w-full form-control form-input form-input-bordered"
         />
       </create-token>
@@ -117,8 +144,9 @@ export default {
       tokens: [],
       showAddModal: false,
       tokenName: null,
+      tokenAbilities: null,
       personalAccessToken: null,
-      showPersonalAccessTokenModal: false
+      showPersonalAccessTokenModal: false,
     };
   },
   created() {
@@ -146,9 +174,10 @@ export default {
     getNewToken() {
       Nova.request()
         .post(`/nova-vendor/sanctum-tokens/tokens/${this.resourceId}`, {
-          name: this.tokenName
+          name: this.tokenName,
+          abilities: this.tokenAbilities,
         })
-        .then(response => {
+        .then((response) => {
           console.log(response.data);
           this.personalAccessToken = response.data;
           this.showPersonalAccessTokenModal = true;
@@ -157,19 +186,19 @@ export default {
     fetchTokens() {
       Nova.request()
         .get(`/nova-vendor/sanctum-tokens/tokens/${this.resourceId}`)
-        .then(response => {
+        .then((response) => {
           this.tokens = response.data.tokens;
         });
     },
     revokeToken(tokenId) {
       Nova.request()
         .post(`/nova-vendor/sanctum-tokens/tokens/${this.resourceId}/revoke`, {
-          token_id: tokenId
+          token_id: tokenId,
         })
-        .then(response => {
+        .then((response) => {
           location.reload();
         });
-    }
-  }
+    },
+  },
 };
 </script>

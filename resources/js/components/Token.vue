@@ -2,17 +2,17 @@
   <tr>
     <td>
       <div class="text-left text-left" via-resource="users" via-resource-id="1">
-        <span class="whitespace-no-wrap">{{token.name}}</span>
+        <span class="whitespace-no-wrap">{{ token.name }}</span>
       </div>
     </td>
     <td>
       <div class="text-left text-left" via-resource="users" via-resource-id="1">
-        <span class="whitespace-no-wrap">{{token.abilities}}</span>
+        <span class="whitespace-no-wrap">{{ token.abilities }}</span>
       </div>
     </td>
     <td>
       <div class="text-left text-left" via-resource="users" via-resource-id="1">
-        <span class="whitespace-no-wrap">{{lastUsed}}</span>
+        <span class="whitespace-no-wrap">{{ lastUsed }}</span>
       </div>
     </td>
     <td class="td-fit text-right pr-6 align-middle">
@@ -54,18 +54,18 @@ export default {
   props: {
     token: {
       required: true,
-      type: Object
-    }
+      type: Object,
+    },
   },
   data() {
     return {
-      showDeleteModal: false
+      showDeleteModal: false,
     };
   },
   methods: {
     revokeToken() {
       this.$emit("revoke-token", this.token.id);
-    }
+    },
   },
   computed: {
     lastUsed() {
@@ -74,10 +74,9 @@ export default {
       } else {
         return "—";
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
-<style lang="css" scoped>
-</style>
+<style lang="css" scoped></style>
