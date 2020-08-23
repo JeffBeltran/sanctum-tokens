@@ -30,6 +30,12 @@
       "@semantic-release/git"
     ]
   },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
   "scripts": {
     "dev": "npm run development",
     "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
@@ -42,12 +48,16 @@
     "prettier-fix": "prettier --write \"resources/js/**/*\""
   },
   "devDependencies": {
+    "@commitlint/cli": "^9.1.2",
+    "@commitlint/config-conventional": "^9.1.2",
     "@prettier/plugin-php": "^0.14.3",
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/git": "^9.0.0",
     "cross-env": "^5.0.0",
+    "husky": "^4.2.5",
     "laravel-mix": "^1.0",
     "prettier": "^2.0.5",
+    "pretty-quick": "^3.0.0",
     "semantic-release": "^17.1.1"
   },
   "dependencies": {
