@@ -150,10 +150,10 @@
   dependencies:
     "@types/node" ">= 8"
 
-"@prettier/plugin-php@^0.14.2":
-  version "0.14.2"
-  resolved "https://registry.yarnpkg.com/@prettier/plugin-php/-/plugin-php-0.14.2.tgz#d19c6fb8d177633f3d404d733f0e8cfc23741b3e"
-  integrity sha512-sG713Vb/eKtlB4rsL1+7mDD85jC2cjop8z/LE2QZHBtbopemfa4okEha01fgCqMaLJ80NBwGP9SZIwY9MR/w6w==
+"@prettier/plugin-php@^0.14.3":
+  version "0.14.3"
+  resolved "https://registry.yarnpkg.com/@prettier/plugin-php/-/plugin-php-0.14.3.tgz#91e8595026f2d25d7f1c6141658b3bf94947cb7e"
+  integrity sha512-n+r5e4p8QhF497NUyOx7AqyQjNqCNbwhd+W8wTc07dO9ME42npIwZ1N8Hyc3kZ4KeLxE+nAuU5e21VMcbJyOMQ==
   dependencies:
     linguist-languages "^7.5.1"
     mem "^6.0.1"
@@ -9629,10 +9629,10 @@ selfsigned@^1.9.1:
   dependencies:
     node-forge "0.9.0"
 
-semantic-release@^17.0.8:
-  version "17.0.8"
-  resolved "https://registry.yarnpkg.com/semantic-release/-/semantic-release-17.0.8.tgz#68b80461fdd8eb445228ae23fd9e85857a50ae3f"
-  integrity sha512-9KcdidiJ4xchrJXxPdaDQVlybgX0xTeKyVjRySYk5u9GpjibXD7E5F8cB0BvFLMDmMyrkCwcem0kFiaLD2VNPg==
+semantic-release@^17.1.1:
+  version "17.1.1"
+  resolved "https://registry.yarnpkg.com/semantic-release/-/semantic-release-17.1.1.tgz#d9775968e841b2b7c5020559e4481aea8520ca75"
+  integrity sha512-9H+207eynBJElrQBHySZm+sIEoJeUhPA2zU4cdlY1QSInd2lnE8GRD2ALry9EassE22c9WW+aCREwBhro5AIIg==
   dependencies:
     "@semantic-release/commit-analyzer" "^8.0.0"
     "@semantic-release/error" "^2.2.0"
