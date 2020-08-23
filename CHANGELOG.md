@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/JeffBeltran/sanctum-tokens/compare/v1.2.0...v1.2.1) (2020-08-23)
+
+
+### Bug Fixes
+
+* built assets not commited on release ([a82b3fb](https://github.com/JeffBeltran/sanctum-tokens/commit/a82b3fb5c9d658022fc5cf3d648d983cbd0ed1ba))
+
 # [1.2.0](https://github.com/JeffBeltran/sanctum-tokens/compare/v1.1.0...v1.2.0) (2020-08-23)
 
 
