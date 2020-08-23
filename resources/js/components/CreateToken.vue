@@ -39,7 +39,7 @@
                   <slot name="abilities"></slot>
 
                   <div class="help-text help-text mt-2">
-                    Comma seperated list of abilities to apply to token
+                    Comma separated list of abilities to apply to token.
                   </div>
                 </div>
               </div>
