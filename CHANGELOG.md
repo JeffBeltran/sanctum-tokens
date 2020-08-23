@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/JeffBeltran/sanctum-tokens/compare/v1.1.0...v1.2.0) (2020-08-23)
+
+
+### Features
+
+* add ability to define Token Abilities ([2dc214a](https://github.com/JeffBeltran/sanctum-tokens/commit/2dc214ac89043ae79bf77a17e95646c210d57ed4))
+
 # [1.1.0](https://github.com/JeffBeltran/sanctum-tokens/compare/v1.0.1...v1.1.0) (2020-07-12)
 
 
