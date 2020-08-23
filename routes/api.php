@@ -34,16 +34,16 @@ Route::post('tokens/{id}', function ($id, Request $request) {
     $userModel = get_class($request->user());
     $user = $userModel::find($id);
 
+    $abilities =
+        $request->abilities == ""
+            ? ['*']
+            : collect(explode(',', $request->abilities))
+                ->map(function ($item) {
+                    return trim($item);
+                })
+                ->toArray();
 
-    $abilities = $request->abilities == ""  ? ['*']
-        : collect(explode(',', $request->abilities))
-            ->map(function ($item) {
-                return trim($item);
-            })
-            ->toArray();
-
-
-    $token = $user->createToken($request->name,$abilities);
+    $token = $user->createToken($request->name, $abilities);
 
     return $token->plainTextToken;
 });
