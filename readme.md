@@ -9,6 +9,7 @@ This package allows you to use [Sanctum](https://laravel.com/docs/7.x/sanctum) t
 ![screenshot of providing a name](https://user-images.githubusercontent.com/22965241/84215846-8018d880-aa7c-11ea-8e35-7c3ab8d32f15.jpg)
 
 ## Prerequisites
+
 1. [Install and Configure Sanctum](https://laravel.com/docs/7.x/sanctum#installation)
 2. [Have Laravel Nova](https://nova.laravel.com/)
 
@@ -18,9 +19,11 @@ This package allows you to use [Sanctum](https://laravel.com/docs/7.x/sanctum) t
 composer require jeffbeltran/sanctum-tokens
 ```
 
-Register the plugin by adding `SanctumTokens::make()` to the array of fields in the Nova resource (Only User model is supported right now)
+Register the plugin by adding `SanctumTokens::make()` to the array of fields in the Nova resource. Make sure the
+`HasApiTokens` trait from the Sanctum package has been added to your model.
+
 ```php
-use Jeffbeltran\SanctumTokens\SanctumTokens;;
+use Jeffbeltran\SanctumTokens\SanctumTokens;
 
 /**
  * Get the fields displayed by the resource.
@@ -42,5 +45,3 @@ public function fields(Request $request)
 ## Other Info
 
 This is super basic plugin at the moment, I just needed a quick way to generate a Sanctum token from Nova. This does not allow or support other features that Sanctum does, however ,if there is a want/need from other people i'll get more functionality added.
-
-
