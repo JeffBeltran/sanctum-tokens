@@ -21,18 +21,32 @@ use Illuminate\Support\Facades\Route;
 /**
  * Get tokes for provided user id
  */
-Route::get('tokens/{id}', function ($id, Request $request) {
-    $userModel = get_class($request->user());
+Route::get('tokens/{resourceName}/{id}', function (
+    $resourceName,
+    $id,
+    Request $request
+) {
+    $resource = \Laravel\Nova\Fields\ResourceRelationshipGuesser::guessResource(
+        $resourceName
+    );
 
-    return $userModel
-        ::with('tokens')
+    return $resource
+        ::newModel()
+        ->with('tokens')
         ->where('id', $id)
         ->first();
 });
 
-Route::post('tokens/{id}', function ($id, Request $request) {
-    $userModel = get_class($request->user());
-    $user = $userModel::find($id);
+Route::post('tokens/{resourceName}/{id}', function (
+    $resourceName,
+    $id,
+    Request $request
+) {
+    $resource = \Laravel\Nova\Fields\ResourceRelationshipGuesser::guessResource(
+        $resourceName
+    );
+
+    $user = $resource::newModel()->find($id);
 
     $abilities =
         $request->abilities == ""
@@ -48,10 +62,18 @@ Route::post('tokens/{id}', function ($id, Request $request) {
     return $token->plainTextToken;
 });
 
-Route::post('tokens/{id}/revoke', function ($id, Request $request) {
-    $userModel = get_class($request->user());
-    $user = $userModel
-        ::with('tokens')
+Route::post('tokens/{resourceName}/{id}/revoke', function (
+    $resourceName,
+    $id,
+    Request $request
+) {
+    $resource = \Laravel\Nova\Fields\ResourceRelationshipGuesser::guessResource(
+        $resourceName
+    );
+
+    $user = $resource
+        ::newModel()
+        ->with('tokens')
         ->where('id', $id)
         ->first();
 

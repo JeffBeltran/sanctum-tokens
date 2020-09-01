@@ -173,10 +173,13 @@ export default {
     },
     getNewToken() {
       Nova.request()
-        .post(`/nova-vendor/sanctum-tokens/tokens/${this.resourceId}`, {
-          name: this.tokenName,
-          abilities: this.tokenAbilities,
-        })
+        .post(
+          `/nova-vendor/sanctum-tokens/tokens/${this.resourceName}/${this.resourceId}`,
+          {
+            name: this.tokenName,
+            abilities: this.tokenAbilities,
+          }
+        )
         .then((response) => {
           console.log(response.data);
           this.personalAccessToken = response.data;
@@ -185,16 +188,21 @@ export default {
     },
     fetchTokens() {
       Nova.request()
-        .get(`/nova-vendor/sanctum-tokens/tokens/${this.resourceId}`)
+        .get(
+          `/nova-vendor/sanctum-tokens/tokens/${this.resourceName}/${this.resourceId}`
+        )
         .then((response) => {
           this.tokens = response.data.tokens;
         });
     },
     revokeToken(tokenId) {
       Nova.request()
-        .post(`/nova-vendor/sanctum-tokens/tokens/${this.resourceId}/revoke`, {
-          token_id: tokenId,
-        })
+        .post(
+          `/nova-vendor/sanctum-tokens/tokens/${this.resourceName}/${this.resourceId}/revoke`,
+          {
+            token_id: tokenId,
+          }
+        )
         .then((response) => {
           location.reload();
         });
