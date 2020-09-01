@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/JeffBeltran/sanctum-tokens/compare/v1.2.1...v1.3.0) (2020-09-01)
+
+
+### Features
+
+* add support for other models other than the user ([84e3ffd](https://github.com/JeffBeltran/sanctum-tokens/commit/84e3ffd7d42bcf83b03faf6460db63781b00c703))
+
 ## [1.2.1](https://github.com/JeffBeltran/sanctum-tokens/compare/v1.2.0...v1.2.1) (2020-08-23)
 
 
