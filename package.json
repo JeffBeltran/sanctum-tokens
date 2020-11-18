@@ -76,7 +76,7 @@
     "laravel-mix": "^1.0",
     "prettier": "^2.0.5",
     "pretty-quick": "^3.0.0",
-    "semantic-release": "^17.1.1"
+    "semantic-release": "^17.2.3"
   },
   "dependencies": {
     "vue": "^2.5.0"
