@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Laravel\Nova\Nova;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,12 +27,7 @@ Route::get('tokens/{resourceName}/{id}', function (
     $id,
     Request $request
 ) {
-    $resource = \Laravel\Nova\Fields\ResourceRelationshipGuesser::guessResource(
-        $resourceName
-    );
-
-    return $resource
-        ::newModel()
+    return Nova::modelInstanceForKey($resourceName)
         ->with('tokens')
         ->where('id', $id)
         ->first();
@@ -42,11 +38,7 @@ Route::post('tokens/{resourceName}/{id}', function (
     $id,
     Request $request
 ) {
-    $resource = \Laravel\Nova\Fields\ResourceRelationshipGuesser::guessResource(
-        $resourceName
-    );
-
-    $user = $resource::newModel()->find($id);
+    $user = Nova::modelInstanceForKey($resourceName)->find($id);
 
     $abilities =
         $request->abilities == ""
@@ -67,12 +59,7 @@ Route::post('tokens/{resourceName}/{id}/revoke', function (
     $id,
     Request $request
 ) {
-    $resource = \Laravel\Nova\Fields\ResourceRelationshipGuesser::guessResource(
-        $resourceName
-    );
-
-    $user = $resource
-        ::newModel()
+    $user = Nova::modelInstanceForKey($resourceName)
         ->with('tokens')
         ->where('id', $id)
         ->first();
