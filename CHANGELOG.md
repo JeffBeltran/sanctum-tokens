@@ -1,3 +1,10 @@
+## [1.3.5](https://github.com/JeffBeltran/sanctum-tokens/compare/v1.3.4...v1.3.5) (2020-12-15)
+
+
+### Bug Fixes
+
+* fix nova resource discovery ([d859b15](https://github.com/JeffBeltran/sanctum-tokens/commit/d859b154df5f629bcb7f4ce8b0b413b827b8842e))
+
 ## [1.3.4](https://github.com/JeffBeltran/sanctum-tokens/compare/v1.3.3...v1.3.4) (2020-12-05)
 
 ## [1.3.3](https://github.com/JeffBeltran/sanctum-tokens/compare/v1.3.2...v1.3.3) (2020-12-05)
