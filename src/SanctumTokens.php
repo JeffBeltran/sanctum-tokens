@@ -13,7 +13,7 @@ class SanctumTokens extends ResourceTool
      */
     public function name()
     {
-        return 'Sanctum Tokens';
+        return $this->name ?: __('Sanctum Tokens');
     }
 
     /**
