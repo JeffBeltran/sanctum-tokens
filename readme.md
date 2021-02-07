@@ -67,3 +67,29 @@ public function fields(Request $request)
 }
 
 ```
+
+### Set Default Abilities
+
+If you don't want to use the default `*` token ability you can set your own by simply passing an array of strings to the `defaultAbilities()` method on the field.
+
+This works well with the the `hideAbilities()` method if you want to hide the abilities logic from your users.
+
+```php
+use Jeffbeltran\SanctumTokens\SanctumTokens;
+
+/**
+ * Get the fields displayed by the resource.
+ *
+ * @param  \Illuminate\Http\Request  $request
+ * @return array
+ */
+public function fields(Request $request)
+{
+    return [
+        ID::make('ID', 'id')->sortable(),
+        ...
+        SanctumTokens::make()->defaultAbilities(['foo', 'bar-baz']),
+    ];
+}
+
+```

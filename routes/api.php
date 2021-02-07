@@ -40,14 +40,11 @@ Route::post("tokens/{resourceName}/{id}", function (
 ) {
     $user = Nova::modelInstanceForKey($resourceName)->find($id);
 
-    $abilities =
-        $request->abilities == ""
-            ? ["*"]
-            : collect(explode(",", $request->abilities))
-                ->map(function ($item) {
-                    return trim($item);
-                })
-                ->toArray();
+    $abilities = collect(explode(",", $request->abilities))
+        ->map(function ($item) {
+            return trim($item);
+        })
+        ->toArray();
 
     $token = $user->createToken($request->name, $abilities);
 

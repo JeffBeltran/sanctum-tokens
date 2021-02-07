@@ -96,7 +96,7 @@
           id="abilities"
           list="abilities-list"
           type="text"
-          placeholder="Abilities"
+          :placeholder="panel.options.defaultAbilities"
           class="w-full form-control form-input form-input-bordered"
         />
       </create-token>
@@ -179,11 +179,12 @@ export default {
           `/nova-vendor/sanctum-tokens/tokens/${this.resourceName}/${this.resourceId}`,
           {
             name: this.tokenName,
-            abilities: this.tokenAbilities,
+            abilities: this.tokenAbilities
+              ? this.tokenAbilities
+              : this.panel.options.defaultAbilities,
           }
         )
         .then((response) => {
-          console.log(response.data);
           this.personalAccessToken = response.data;
           this.showPersonalAccessTokenModal = true;
         });
@@ -205,7 +206,7 @@ export default {
             token_id: tokenId,
           }
         )
-        .then((response) => {
+        .then(() => {
           location.reload();
         });
     },
