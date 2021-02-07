@@ -1,3 +1,11 @@
+# [1.4.0](https://github.com/JeffBeltran/sanctum-tokens/compare/v1.3.6...v1.4.0) (2021-02-07)
+
+
+### Features
+
+* allow the hiding of abilities from UI ([068f774](https://github.com/JeffBeltran/sanctum-tokens/commit/068f774dc3c0ecbec9a63b71e0813208ba9d2aa3)), closes [#25](https://github.com/JeffBeltran/sanctum-tokens/issues/25)
+* customize default abilities ([c90d0e1](https://github.com/JeffBeltran/sanctum-tokens/commit/c90d0e109604b9413b9ed24e80228a1fcfe9ea69))
+
 ## [1.3.6](https://github.com/JeffBeltran/sanctum-tokens/compare/v1.3.5...v1.3.6) (2021-02-07)
 
 ## [1.3.5](https://github.com/JeffBeltran/sanctum-tokens/compare/v1.3.4...v1.3.5) (2020-12-15)
