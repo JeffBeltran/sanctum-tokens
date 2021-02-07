@@ -1,3 +1,5 @@
+## [1.3.6](https://github.com/JeffBeltran/sanctum-tokens/compare/v1.3.5...v1.3.6) (2021-02-07)
+
 ## [1.3.5](https://github.com/JeffBeltran/sanctum-tokens/compare/v1.3.4...v1.3.5) (2020-12-15)
 
 
