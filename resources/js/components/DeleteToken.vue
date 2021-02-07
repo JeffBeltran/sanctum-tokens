@@ -3,7 +3,7 @@
     <form
       @submit.prevent="handleConfirm"
       class="bg-white rounded-lg shadow-lg overflow-hidden"
-      style="width: 460px;"
+      style="width: 460px"
     >
       <div class="p-8">
         <heading :level="2" class="mb-6">

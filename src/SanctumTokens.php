@@ -13,7 +13,7 @@ class SanctumTokens extends ResourceTool
      */
     public function name()
     {
-        return 'Sanctum Tokens';
+        return "Sanctum Tokens";
     }
 
     /**
@@ -23,6 +23,6 @@ class SanctumTokens extends ResourceTool
      */
     public function component()
     {
-        return 'sanctum-tokens';
+        return "sanctum-tokens";
     }
 }
