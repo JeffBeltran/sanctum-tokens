@@ -24,7 +24,7 @@
               <th class="text-left">
                 <span>Name</span>
               </th>
-              <th class="text-left">
+              <th class="text-left" v-if="panel.options.showAbilities">
                 <span>Abilities</span>
               </th>
               <th class="text-left">
@@ -38,6 +38,7 @@
               v-for="token in tokens"
               :key="token.id"
               :token="token"
+              :show-abilities="panel.options.showAbilities"
               @revoke-token="revokeToken"
             ></token>
           </tbody>
@@ -75,6 +76,7 @@
     <portal to="modals" transition="fade-transition">
       <create-token
         v-if="showAddModal"
+        :show-abilities="panel.options.showAbilities"
         @create="createToken"
         @cancelled-create="closeModal"
       >
@@ -94,7 +96,7 @@
           id="abilities"
           list="abilities-list"
           type="text"
-          placeholder="Abilities"
+          :placeholder="panel.options.defaultAbilities"
           class="w-full form-control form-input form-input-bordered"
         />
       </create-token>
@@ -177,11 +179,12 @@ export default {
           `/nova-vendor/sanctum-tokens/tokens/${this.resourceName}/${this.resourceId}`,
           {
             name: this.tokenName,
-            abilities: this.tokenAbilities,
+            abilities: this.tokenAbilities
+              ? this.tokenAbilities
+              : this.panel.options.defaultAbilities,
           }
         )
         .then((response) => {
-          console.log(response.data);
           this.personalAccessToken = response.data;
           this.showPersonalAccessTokenModal = true;
         });
@@ -203,7 +206,7 @@ export default {
             token_id: tokenId,
           }
         )
-        .then((response) => {
+        .then(() => {
           location.reload();
         });
     },

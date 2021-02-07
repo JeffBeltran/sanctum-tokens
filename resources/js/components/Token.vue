@@ -5,7 +5,7 @@
         <span class="whitespace-no-wrap">{{ token.name }}</span>
       </div>
     </td>
-    <td>
+    <td v-if="showAbilities">
       <div class="text-left text-left" via-resource="users" via-resource-id="1">
         <span class="whitespace-no-wrap">{{ token.abilities }}</span>
       </div>
@@ -55,6 +55,10 @@ export default {
     token: {
       required: true,
       type: Object,
+    },
+    showAbilities: {
+      required: true,
+      type: Boolean,
     },
   },
   data() {

@@ -21,8 +21,8 @@ class ToolServiceProvider extends ServiceProvider
         });
 
         Nova::serving(function (ServingNova $event) {
-            Nova::script('sanctum-tokens', __DIR__.'/../dist/js/tool.js');
-            Nova::style('sanctum-tokens', __DIR__.'/../dist/css/tool.css');
+            Nova::script("sanctum-tokens", __DIR__ . "/../dist/js/tool.js");
+            Nova::style("sanctum-tokens", __DIR__ . "/../dist/css/tool.css");
         });
     }
 
@@ -37,9 +37,9 @@ class ToolServiceProvider extends ServiceProvider
             return;
         }
 
-        Route::middleware(['nova'])
-                ->prefix('nova-vendor/sanctum-tokens')
-                ->group(__DIR__.'/../routes/api.php');
+        Route::middleware(["nova"])
+            ->prefix("nova-vendor/sanctum-tokens")
+            ->group(__DIR__ . "/../routes/api.php");
     }
 
     /**

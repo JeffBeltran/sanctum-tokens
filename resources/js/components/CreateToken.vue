@@ -27,7 +27,7 @@
                   <div class="help-text help-text mt-2"></div>
                 </div>
               </div>
-              <div class="flex w-full">
+              <div class="flex w-full" v-if="showAbilities">
                 <div class="w-1/5 px-8 py-6">
                   <label
                     for="scopes"
@@ -71,6 +71,12 @@
 
 <script>
 export default {
+  props: {
+    showAbilities: {
+      required: true,
+      type: Boolean,
+    },
+  },
   /**
    * Mount the component.
    */

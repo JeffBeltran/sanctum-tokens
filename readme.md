@@ -42,6 +42,54 @@ public function fields(Request $request)
 
 ```
 
-## Other Info
+## Features
 
-This is super basic plugin at the moment, I just needed a quick way to generate a Sanctum token from Nova. This does not allow or support other features that Sanctum does, however ,if there is a want/need from other people i'll get more functionality added.
+### Hide Abilities
+
+You can hide the reference to the token abilities from the UI by calling the `hideAbilities()` method on the field.
+
+```php
+use Jeffbeltran\SanctumTokens\SanctumTokens;
+
+/**
+ * Get the fields displayed by the resource.
+ *
+ * @param  \Illuminate\Http\Request  $request
+ * @return array
+ */
+public function fields(Request $request)
+{
+    return [
+        ID::make('ID', 'id')->sortable(),
+        ...
+        SanctumTokens::make()->hideAbilities(),
+    ];
+}
+
+```
+
+### Set Default Abilities
+
+If you don't want to use the default `*` token ability you can set your own by simply passing an array of strings to the `defaultAbilities()` method on the field.
+
+This works well with the the `hideAbilities()` method if you want to hide the abilities logic from your users.
+
+```php
+use Jeffbeltran\SanctumTokens\SanctumTokens;
+
+/**
+ * Get the fields displayed by the resource.
+ *
+ * @param  \Illuminate\Http\Request  $request
+ * @return array
+ */
+public function fields(Request $request)
+{
+    return [
+        ID::make('ID', 'id')->sortable(),
+        ...
+        SanctumTokens::make()->defaultAbilities(['foo', 'bar-baz']),
+    ];
+}
+
+```
