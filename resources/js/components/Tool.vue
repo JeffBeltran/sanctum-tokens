@@ -24,7 +24,7 @@
               <th class="text-left">
                 <span>Name</span>
               </th>
-              <th class="text-left">
+              <th class="text-left" v-if="panel.options.showAbilities">
                 <span>Abilities</span>
               </th>
               <th class="text-left">
@@ -38,6 +38,7 @@
               v-for="token in tokens"
               :key="token.id"
               :token="token"
+              :show-abilities="panel.options.showAbilities"
               @revoke-token="revokeToken"
             ></token>
           </tbody>
@@ -75,6 +76,7 @@
     <portal to="modals" transition="fade-transition">
       <create-token
         v-if="showAddModal"
+        :show-abilities="panel.options.showAbilities"
         @create="createToken"
         @cancelled-create="closeModal"
       >

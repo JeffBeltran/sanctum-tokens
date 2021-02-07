@@ -6,6 +6,15 @@ use Laravel\Nova\ResourceTool;
 
 class SanctumTokens extends ResourceTool
 {
+    private $defaultOptions = ["showAbilities" => true];
+
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->meta["options"] = $this->defaultOptions;
+    }
+
     /**
      * Get the displayable name of the resource tool.
      *
@@ -14,6 +23,24 @@ class SanctumTokens extends ResourceTool
     public function name()
     {
         return "Sanctum Tokens";
+    }
+
+    private function updateOption(array $value)
+    {
+        $this->meta["options"] = array_merge($this->meta["options"], $value);
+        return $this;
+    }
+
+    /**
+     * This will hide the references to abilities from the UI
+     *
+     * @return $this
+     */
+    public function hideAbilities()
+    {
+        return $this->updateOption([
+            "showAbilities" => false,
+        ]);
     }
 
     /**
