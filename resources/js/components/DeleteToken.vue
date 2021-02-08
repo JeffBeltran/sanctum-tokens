@@ -10,7 +10,11 @@
           {{ __("Delete Token") }}
         </heading>
         <p class="text-80 leading-normal">
-          Are you sure you want to delete the {{ token.name }} token?
+          {{
+            __("Are you sure you want to delete the :token token?", {
+              token: token.name,
+            })
+          }}
         </p>
       </div>
 

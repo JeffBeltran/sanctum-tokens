@@ -8,7 +8,7 @@
     >
       <div>
         <h2 class="border-b border-40 py-8 px-8 text-90 font-normal text-xl">
-          Create Personal Access Token
+          {{ __("Create Personal Access Token") }}
         </h2>
         <div>
           <div class="action">
@@ -18,7 +18,7 @@
                   <label
                     for="name"
                     class="inline-block text-80 pt-2 leading-tight"
-                    >Name</label
+                    >{{ __("Name") }}</label
                   >
                 </div>
                 <div class="py-6 px-8 w-1/2">
@@ -32,14 +32,16 @@
                   <label
                     for="scopes"
                     class="inline-block text-80 pt-2 leading-tight"
-                    >Abilities</label
+                    >{{ __("Abilities") }}</label
                   >
                 </div>
                 <div class="py-6 px-8 w-1/2">
                   <slot name="abilities"></slot>
 
                   <div class="help-text help-text mt-2">
-                    Comma separated list of abilities to apply to token.
+                    {{
+                      __("Comma separated list of abilities to apply to token.")
+                    }}
                   </div>
                 </div>
               </div>

@@ -1,6 +1,8 @@
 <template>
   <div class="relative" dusk="profiles-index-component">
-    <h1 class="mb-3 text-90 font-normal text-2xl">Personal Access Tokens</h1>
+    <h1 class="mb-3 text-90 font-normal text-2xl">
+      {{ __("Personal Access Tokens") }}
+    </h1>
     <div class="flex" style>
       <div class="w-full flex items-center">
         <div class="flex-no-shrink ml-auto mb-6">
@@ -8,7 +10,7 @@
             @click="showAddModal = true"
             class="btn btn-default btn-primary"
           >
-            Create Token
+            {{ __("Create Token") }}
           </button>
         </div>
       </div>
@@ -22,13 +24,13 @@
           <thead>
             <tr>
               <th class="text-left">
-                <span>Name</span>
+                <span>{{ __("Name") }}</span>
               </th>
               <th class="text-left" v-if="panel.options.showAbilities">
-                <span>Abilities</span>
+                <span>{{ __("Abilities") }}</span>
               </th>
               <th class="text-left">
-                <span>Last Used At</span>
+                <span>{{ __("Last Used At") }}</span>
               </th>
               <th>&nbsp;</th>
             </tr>
@@ -60,14 +62,14 @@
             />
           </svg>
           <h3 class="text-base text-80 font-normal mb-6">
-            No Tokens For User.
+            {{ __("No Tokens For User.") }}
           </h3>
           <div>
             <button
               @click="showAddModal = true"
               class="btn btn-sm btn-outline inline-flex items-center focus:outline-none focus:shadow-outline active:outline-none active:shadow-outline"
             >
-              Create Token
+              {{ __("Create Token") }}
             </button>
           </div>
         </div>
@@ -131,7 +133,7 @@
               d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
             />
           </svg>
-          Copy
+          {{ __("Copy") }}
         </button>
       </show-token>
     </portal>

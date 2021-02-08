@@ -1,0 +1,17 @@
+{
+  "Abilities": "Abilities",
+  "Are you sure you want to delete the :token token?": "Are you sure you want to delete the :token token?",
+  "Cancel": "Cancel",
+  "Comma separated list of abilities to apply to token.": "Comma separated list of abilities to apply to token.",
+  "Confirm": "Confirm",
+  "Copy": "Copy",
+  "Create Personal Access Token": "Create Personal Access Token",
+  "Create Token": "Create Token",
+  "Delete Token": "Delete Token",
+  "Last Used At": "Last Used At",
+  "Make sure to copy your new personal access token now. You won't be able to see it again!": "Make sure to copy your new personal access token now. You won't be able to see it again!",
+  "Name": "Name",
+  "No Tokens For User.": "No Tokens For User.",
+  "Personal Access Token": "Personal Access Token",
+  "Personal Access Tokens": "Personal Access Tokens"
+}
