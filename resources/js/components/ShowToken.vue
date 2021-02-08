@@ -7,7 +7,7 @@
     >
       <div>
         <h2 class="border-b border-40 py-8 px-8 text-90 font-normal text-xl">
-          Personal Access Token
+          {{ __("Personal Access Token") }}
         </h2>
         <div>
           <div class="action">
@@ -35,8 +35,11 @@
                     </div>
                     <div class="flex items-center ml-3">
                       <p class="text-sm leading-5 text-yellow-700">
-                        Make sure to copy your new personal access token now.
-                        You won't be able to see it again!
+                        {{
+                          __(
+                            "Make sure to copy your new personal access token now. You won't be able to see it again!"
+                          )
+                        }}
                       </p>
                     </div>
                   </div>
@@ -53,7 +56,7 @@
             type="submit"
             class="btn btn-default btn-primary"
           >
-            Got it!
+            {{ __(`Confirm`) }}
           </button>
         </div>
       </div>

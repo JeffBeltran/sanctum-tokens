@@ -93,3 +93,11 @@ public function fields(Request $request)
 }
 
 ```
+
+### Localization
+
+Publish the package language files to your application's `resources/lang/vendor` directory:
+
+```
+php artisan vendor:publish --provider="Jeffbeltran\SanctumTokens\ToolServiceProvider"
+```
