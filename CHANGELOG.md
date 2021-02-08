@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/JeffBeltran/sanctum-tokens/compare/v1.4.0...v1.5.0) (2021-02-08)
+
+
+### Features
+
+* add localization ([35d7f5a](https://github.com/JeffBeltran/sanctum-tokens/commit/35d7f5a255f3bf0a0a1814e20e2e0cde6aeee44d)), closes [#21](https://github.com/JeffBeltran/sanctum-tokens/issues/21)
+
 # [1.4.0](https://github.com/JeffBeltran/sanctum-tokens/compare/v1.3.6...v1.4.0) (2021-02-07)
 
 
