@@ -29,8 +29,7 @@ Route::get("tokens/{resourceName}/{id}", function (
 ) {
     return Nova::modelInstanceForKey($resourceName)
         ->with("tokens")
-        ->where("id", $id)
-        ->first();
+        ->find($id);
 });
 
 Route::post("tokens/{resourceName}/{id}", function (
@@ -58,11 +57,10 @@ Route::post("tokens/{resourceName}/{id}/revoke", function (
 ) {
     $user = Nova::modelInstanceForKey($resourceName)
         ->with("tokens")
-        ->where("id", $id)
-        ->first();
+        ->find($id);
 
     return $user
         ->tokens()
-        ->where("id", $request->token_id)
+        ->whereKey($request->token_id)
         ->delete();
 });
