@@ -1,3 +1,10 @@
+## [1.5.2](https://github.com/JeffBeltran/sanctum-tokens/compare/v1.5.1...v1.5.2) (2021-03-20)
+
+
+### Bug Fixes
+
+* fix hardcoded expectation that id is the models primary key ([fe629c3](https://github.com/JeffBeltran/sanctum-tokens/commit/fe629c376175a20363bbe840331561e997f2229c))
+
 ## [1.5.1](https://github.com/JeffBeltran/sanctum-tokens/compare/v1.5.0...v1.5.1) (2021-03-14)
 
 # [1.5.0](https://github.com/JeffBeltran/sanctum-tokens/compare/v1.4.0...v1.5.0) (2021-02-08)
