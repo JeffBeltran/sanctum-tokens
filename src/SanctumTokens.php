@@ -7,15 +7,15 @@ use Laravel\Nova\ResourceTool;
 class SanctumTokens extends ResourceTool
 {
     private $defaultOptions = [
-        "showAbilities" => true,
-        "defaultAbilities" => "*",
+        'showAbilities' => true,
+        'defaultAbilities' => '*',
     ];
 
     public function __construct()
     {
         parent::__construct();
 
-        $this->meta["options"] = $this->defaultOptions;
+        $this->meta['options'] = $this->defaultOptions;
     }
 
     /**
@@ -25,36 +25,30 @@ class SanctumTokens extends ResourceTool
      */
     public function name()
     {
-        return "Sanctum Tokens";
-    }
-
-    private function updateOption(array $value)
-    {
-        $this->meta["options"] = array_merge($this->meta["options"], $value);
-        return $this;
+        return 'Sanctum Tokens';
     }
 
     /**
-     * This will hide the references to abilities from the UI
+     * This will hide the references to abilities from the UI.
      *
      * @return $this
      */
     public function hideAbilities()
     {
         return $this->updateOption([
-            "showAbilities" => false,
+            'showAbilities' => false,
         ]);
     }
 
     /**
-     * This will hide the references to abilities from the UI
+     * This will hide the references to abilities from the UI.
      *
      * @return $this
      */
     public function defaultAbilities(array $abilities)
     {
         return $this->updateOption([
-            "defaultAbilities" => implode(", ", $abilities),
+            'defaultAbilities' => implode(', ', $abilities),
         ]);
     }
 
@@ -65,6 +59,13 @@ class SanctumTokens extends ResourceTool
      */
     public function component()
     {
-        return "sanctum-tokens";
+        return 'sanctum-tokens';
+    }
+
+    private function updateOption(array $value)
+    {
+        $this->meta['options'] = array_merge($this->meta['options'], $value);
+
+        return $this;
     }
 }
