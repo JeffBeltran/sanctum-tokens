@@ -19,4 +19,6 @@ jobs:
         run: yarn prod
       
       - name: Release Plugin
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx semantic-release
