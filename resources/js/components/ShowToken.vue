@@ -17,7 +17,14 @@
               </div>
               <div class="flex items-center pb-6 px-8">
                 <div
-                  class="w-full rounded bg-danger-light text-danger-dark border-l-4 border-danger-dark p-4"
+                  class="
+                    w-full
+                    rounded
+                    bg-danger-light
+                    text-danger-dark
+                    border-l-4 border-danger-dark
+                    p-4
+                  "
                 >
                   <div class="flex">
                     <div class="flex flex-shrink-0 items-center">
@@ -37,7 +44,7 @@
                       <p class="text-sm leading-5 text-yellow-700">
                         {{
                           __(
-                            "Make sure to copy your new personal access token now. You won't be able to see it again!"
+                            "Make sure to copy your new personal access token now. You won't be able to see it again!",
                           )
                         }}
                       </p>
@@ -70,7 +77,7 @@ export default {
    * Mount the component.
    */
   mounted() {
-    document.querySelectorAll(".modal input")[0].focus();
+    document.querySelectorAll(".modal input")[0].focus()
   },
   methods: {
     /**
@@ -78,16 +85,16 @@ export default {
      */
     handleKeydown(e) {
       if (["Escape", "Enter"].indexOf(e.key) !== -1) {
-        return;
+        return
       }
-      e.stopPropagation();
+      e.stopPropagation()
     },
     /**
      * Execute the selected action.
      */
     handleConfirm() {
-      this.$emit("confirm");
+      this.$emit("confirm")
     },
   },
-};
+}
 </script>

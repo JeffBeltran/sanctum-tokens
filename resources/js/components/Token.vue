@@ -19,7 +19,15 @@
       <div class="inline-flex items-center">
         <button
           @click="showDeleteModal = true"
-          class="inline-flex appearance-none cursor-pointer text-70 hover:text-primary mr-3 has-tooltip"
+          class="
+            inline-flex
+            appearance-none
+            cursor-pointer
+            text-70
+            hover:text-primary
+            mr-3
+            has-tooltip
+          "
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -64,23 +72,23 @@ export default {
   data() {
     return {
       showDeleteModal: false,
-    };
+    }
   },
   methods: {
     revokeToken() {
-      this.$emit("revoke-token", this.token.id);
+      this.$emit("revoke-token", this.token.id)
     },
   },
   computed: {
     lastUsed() {
       if (this.token.last_used_at) {
-        return moment(this.token.last_used_at).calendar();
+        return moment(this.token.last_used_at).calendar()
       } else {
-        return "—";
+        return "—"
       }
     },
   },
-};
+}
 </script>
 
 <style lang="css" scoped></style>

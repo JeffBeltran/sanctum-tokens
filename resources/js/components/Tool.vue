@@ -1,18 +1,16 @@
 <template>
   <div class="relative" dusk="profiles-index-component">
-    <div class="flex justify-between" style>
-      <h1 class="mb-3 text-90 font-normal text-2xl">
+    <div class="flex items-center mb-3">
+      <h1 class="flex-auto truncate text-90 font-normal text-2xl">
         {{ __("Personal Access Tokens") }}
       </h1>
       <div class="flex items-center">
-        <div class="flex-no-shrink ml-auto mb-6">
-          <button
-            @click="showAddModal = true"
-            class="btn btn-default btn-primary"
-          >
-            {{ __("Create Token") }}
-          </button>
-        </div>
+        <button
+          @click="showAddModal = true"
+          class="btn btn-default btn-primary"
+        >
+          {{ __("Create Token") }}
+        </button>
       </div>
     </div>
     <div class="card">
@@ -67,7 +65,13 @@
           <div>
             <button
               @click="showAddModal = true"
-              class="btn btn-sm btn-outline inline-flex items-center focus:outline-none focus:shadow-outline active:outline-none active:shadow-outline"
+              class="
+                btn btn-sm btn-outline
+                inline-flex
+                items-center
+                focus:outline-none focus:shadow-outline
+                active:outline-none active:shadow-outline
+              "
             >
               {{ __("Create Token") }}
             </button>
@@ -151,29 +155,29 @@ export default {
       tokenAbilities: null,
       personalAccessToken: null,
       showPersonalAccessTokenModal: false,
-    };
+    }
   },
   created() {
-    this.fetchTokens();
+    this.fetchTokens()
   },
   methods: {
     copyToken() {
-      this.$refs.token.select();
-      document.execCommand("copy");
+      this.$refs.token.select()
+      document.execCommand("copy")
     },
     openModal() {
-      this.showAddModal = true;
+      this.showAddModal = true
     },
     confirmModal() {
-      this.modalOpen = false;
+      this.modalOpen = false
     },
     closeModal() {
-      this.showAddModal = false;
-      this.tokenName = null;
+      this.showAddModal = false
+      this.tokenName = null
     },
     createToken() {
-      this.getNewToken();
-      this.closeModal();
+      this.getNewToken()
+      this.closeModal()
     },
     getNewToken() {
       Nova.request()
@@ -184,21 +188,21 @@ export default {
             abilities: this.tokenAbilities
               ? this.tokenAbilities
               : this.panel.options.defaultAbilities,
-          }
+          },
         )
         .then((response) => {
-          this.personalAccessToken = response.data;
-          this.showPersonalAccessTokenModal = true;
-        });
+          this.personalAccessToken = response.data
+          this.showPersonalAccessTokenModal = true
+        })
     },
     fetchTokens() {
       Nova.request()
         .get(
-          `/nova-vendor/sanctum-tokens/tokens/${this.resourceName}/${this.resourceId}`
+          `/nova-vendor/sanctum-tokens/tokens/${this.resourceName}/${this.resourceId}`,
         )
         .then((response) => {
-          this.tokens = response.data.tokens;
-        });
+          this.tokens = response.data.tokens
+        })
     },
     revokeToken(tokenId) {
       Nova.request()
@@ -206,12 +210,12 @@ export default {
           `/nova-vendor/sanctum-tokens/tokens/${this.resourceName}/${this.resourceId}/revoke`,
           {
             token_id: tokenId,
-          }
+          },
         )
         .then(() => {
-          location.reload();
-        });
+          location.reload()
+        })
     },
   },
-};
+}
 </script>

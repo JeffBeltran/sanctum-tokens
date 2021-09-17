@@ -83,7 +83,7 @@ export default {
    * Mount the component.
    */
   mounted() {
-    document.querySelectorAll(".modal input")[0].focus();
+    document.querySelectorAll(".modal input")[0].focus()
   },
   methods: {
     /**
@@ -91,22 +91,22 @@ export default {
      */
     handleKeydown(e) {
       if (["Escape", "Enter"].indexOf(e.key) !== -1) {
-        return;
+        return
       }
-      e.stopPropagation();
+      e.stopPropagation()
     },
     /**
      * Execute the selected action.
      */
     handleCreate() {
-      this.$emit("create");
+      this.$emit("create")
     },
     /**
      * Close the modal.
      */
     handleCancelledCreate() {
-      this.$emit("cancelled-create");
+      this.$emit("cancelled-create")
     },
   },
-};
+}
 </script>
