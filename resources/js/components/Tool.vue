@@ -1,10 +1,10 @@
 <template>
   <div class="relative" dusk="profiles-index-component">
-    <h1 class="mb-3 text-90 font-normal text-2xl">
-      {{ __("Personal Access Tokens") }}
-    </h1>
-    <div class="flex" style>
-      <div class="w-full flex items-center">
+    <div class="flex justify-between" style>
+      <h1 class="mb-3 text-90 font-normal text-2xl">
+        {{ __("Personal Access Tokens") }}
+      </h1>
+      <div class="flex items-center">
         <div class="flex-no-shrink ml-auto mb-6">
           <button
             @click="showAddModal = true"
