@@ -64,23 +64,23 @@ export default {
   data() {
     return {
       showDeleteModal: false,
-    };
+    }
   },
   methods: {
     revokeToken() {
-      this.$emit("revoke-token", this.token.id);
+      this.$emit("revoke-token", this.token.id)
     },
   },
   computed: {
     lastUsed() {
       if (this.token.last_used_at) {
-        return moment(this.token.last_used_at).calendar();
+        return moment(this.token.last_used_at).calendar()
       } else {
-        return "—";
+        return "—"
       }
     },
   },
-};
+}
 </script>
 
 <style lang="css" scoped></style>

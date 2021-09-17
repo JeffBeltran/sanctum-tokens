@@ -52,17 +52,17 @@ export default {
   },
   methods: {
     handleClose() {
-      this.$emit("close");
+      this.$emit("close")
     },
     handleConfirm() {
-      this.$emit("confirm");
+      this.$emit("confirm")
     },
   },
   /**
    * Mount the component.
    */
   mounted() {
-    this.$refs.confirmButton.focus();
+    this.$refs.confirmButton.focus()
   },
-};
+}
 </script>

@@ -61,8 +61,8 @@
     "hot": "mix watch --hot",
     "prod": "npm run production",
     "production": "mix --production",
-    "prettier-check": "prettier --check \"resources/js/**/*\"",
-    "prettier-fix": "prettier --write \"{resources,routes, src}/**/*\""
+    "prettier-check": "prettier --check \"{resources,routes,src}/**/*\"",
+    "prettier-fix": "prettier --write \"{resources,routes,src}/**/*\""
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",

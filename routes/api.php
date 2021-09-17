@@ -13,7 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Get tokes for provided user id
-Route::get('tokens/{resourceName}/{id}', '\Jeffbeltran\SanctumTokens\Http\SanctumController@tokens');
-Route::post('tokens/{resourceName}/{id}', '\Jeffbeltran\SanctumTokens\Http\SanctumController@createToken');
-Route::post('tokens/{resourceName}/{id}/revoke', '\Jeffbeltran\SanctumTokens\Http\SanctumController@revoke');
+Route::get(
+  "tokens/{resourceName}/{id}",
+  "\Jeffbeltran\SanctumTokens\Http\SanctumController@tokens"
+);
+Route::post(
+  "tokens/{resourceName}/{id}",
+  "\Jeffbeltran\SanctumTokens\Http\SanctumController@createToken"
+);
+Route::post(
+  "tokens/{resourceName}/{id}/revoke",
+  "\Jeffbeltran\SanctumTokens\Http\SanctumController@revoke"
+);
