@@ -1,0 +1,22 @@
+name: Build and Release
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build_release:
+    name: "Build and Release"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Build Plugin
+        run: yarn prod
+      
+      - name: Release Plugin
+        run: npx semantic-release
