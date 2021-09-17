@@ -65,7 +65,13 @@
           <div>
             <button
               @click="showAddModal = true"
-              class="btn btn-sm btn-outline inline-flex items-center focus:outline-none focus:shadow-outline active:outline-none active:shadow-outline"
+              class="
+                btn btn-sm btn-outline
+                inline-flex
+                items-center
+                focus:outline-none focus:shadow-outline
+                active:outline-none active:shadow-outline
+              "
             >
               {{ __("Create Token") }}
             </button>

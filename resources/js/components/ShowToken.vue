@@ -17,7 +17,14 @@
               </div>
               <div class="flex items-center pb-6 px-8">
                 <div
-                  class="w-full rounded bg-danger-light text-danger-dark border-l-4 border-danger-dark p-4"
+                  class="
+                    w-full
+                    rounded
+                    bg-danger-light
+                    text-danger-dark
+                    border-l-4 border-danger-dark
+                    p-4
+                  "
                 >
                   <div class="flex">
                     <div class="flex flex-shrink-0 items-center">

@@ -19,7 +19,15 @@
       <div class="inline-flex items-center">
         <button
           @click="showDeleteModal = true"
-          class="inline-flex appearance-none cursor-pointer text-70 hover:text-primary mr-3 has-tooltip"
+          class="
+            inline-flex
+            appearance-none
+            cursor-pointer
+            text-70
+            hover:text-primary
+            mr-3
+            has-tooltip
+          "
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
