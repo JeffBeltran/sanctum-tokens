@@ -3,50 +3,6 @@
   "version": "1.5.5",
   "repository": "github:JeffBeltran/sanctum-tokens",
   "private": true,
-  "release": {
-    "branches": [
-      "master"
-    ],
-    "plugins": [
-      [
-        "@semantic-release/commit-analyzer",
-        {
-          "preset": "conventionalcommits",
-          "releaseRules": [
-            {
-              "type": "build",
-              "release": "patch"
-            },
-            {
-              "type": "refactor",
-              "release": "patch"
-            }
-          ]
-        }
-      ],
-      "@semantic-release/release-notes-generator",
-      "@semantic-release/changelog",
-      [
-        "@semantic-release/exec",
-        {
-          "prepareCmd": "yarn production"
-        }
-      ],
-      "@semantic-release/npm",
-      "@semantic-release/github",
-      [
-        "@semantic-release/git",
-        {
-          "assets": [
-            "dist/**/*.{js,css,json}",
-            "CHANGELOG.md",
-            "package.json",
-            "yarn.lock"
-          ]
-        }
-      ]
-    ]
-  },
   "scripts": {
     "dev": "npm run development",
     "development": "mix",
