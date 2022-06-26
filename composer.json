@@ -3,11 +3,12 @@
   "description": "A Laravel Nova resource tool for sanctum tokens.",
   "keywords": [
     "laravel",
-    "nova"
+    "nova",
+    "sanctum"
   ],
   "license": "MIT",
   "require": {
-    "php": ">=7.1.0"
+    "php": "^7.3|^8.0"
   },
   "autoload": {
     "psr-4": {

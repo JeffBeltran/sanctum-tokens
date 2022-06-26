@@ -15,7 +15,7 @@ class SanctumTokens extends ResourceTool
   {
     parent::__construct();
 
-    $this->meta["options"] = $this->defaultOptions;
+    return $this->withMeta($this->defaultOptions);
   }
 
   /**
@@ -35,7 +35,7 @@ class SanctumTokens extends ResourceTool
    */
   public function hideAbilities()
   {
-    return $this->updateOption([
+    return $this->withMeta([
       "showAbilities" => false,
     ]);
   }
@@ -47,7 +47,7 @@ class SanctumTokens extends ResourceTool
    */
   public function defaultAbilities(array $abilities)
   {
-    return $this->updateOption([
+    return $this->withMeta([
       "defaultAbilities" => implode(", ", $abilities),
     ]);
   }
@@ -59,13 +59,6 @@ class SanctumTokens extends ResourceTool
    */
   public function component()
   {
-    return "sanctum-tokens";
-  }
-
-  private function updateOption(array $value)
-  {
-    $this->meta["options"] = array_merge($this->meta["options"], $value);
-
-    return $this;
+    return "SanctumTokens";
   }
 }

@@ -1,7 +1,15 @@
-Nova.booting((Vue, router, store) => {
-  Vue.component("sanctum-tokens", require("./components/Tool").default)
-  Vue.component("create-token", require("./components/CreateToken").default)
-  Vue.component("delete-token", require("./components/DeleteToken").default)
-  Vue.component("show-token", require("./components/ShowToken").default)
-  Vue.component("token", require("./components/Token").default)
+import SanctumTokens from "./components/SanctumTokens"
+import CreateTokenModal from "./components/CreateTokenModal"
+import CreatedTokenModal from "./components/CreatedTokenModal"
+import DeleteTokenModal from "./components/DeleteTokenModal"
+import NoTokens from "./components/NoTokens"
+import TokenRow from "./components/TokenRow"
+
+Nova.booting((app, _store) => {
+  app.component("SanctumTokens", SanctumTokens)
+  app.component("CreateTokenModal", CreateTokenModal)
+  app.component("CreatedTokenModal", CreatedTokenModal)
+  app.component("DeleteTokenModal", DeleteTokenModal)
+  app.component("NoTokens", NoTokens)
+  app.component("TokenRow", TokenRow)
 })
