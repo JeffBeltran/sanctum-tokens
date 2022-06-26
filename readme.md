@@ -12,6 +12,8 @@ This package allows you to use [Sanctum](https://laravel.com/docs/7.x/sanctum) t
 
 1. [Install and Configure Sanctum](https://laravel.com/docs/7.x/sanctum#installation)
 2. [Have Laravel Nova](https://nova.laravel.com/)
+   - For Nova 4, use v2
+   - Nova 3, use v1
 
 ## Installation
 
