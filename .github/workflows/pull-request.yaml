@@ -24,6 +24,9 @@ jobs:
       - name: Check formatting
         run: yarn prettier-check
 
+      - name: Check formatting
+        run: yarn eslint-check
+
       - name: Validate Semantic Release
         run: npx semantic-release --dry-run
 
