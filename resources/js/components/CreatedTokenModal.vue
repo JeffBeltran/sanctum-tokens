@@ -1,14 +1,7 @@
 <template>
   <Modal :show="show">
     <div
-      class="
-        mx-auto
-        bg-white
-        dark:bg-gray-800
-        rounded-lg
-        shadow-lg
-        overflow-hidden
-      "
+      class="mx-auto bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden"
     >
       <slot>
         <ModalHeader>{{ __("Created Token") }}</ModalHeader>
@@ -19,21 +12,7 @@
                 <button
                   v-tooltip="__('Copy to clipboard')"
                   type="button"
-                  class="
-                    flex
-                    items-center
-                    justify-between
-                    w-full
-                    hover:bg-gray-50
-                    dark:hover:bg-gray-900
-                    text-gray-500
-                    dark:text-gray-400
-                    hover:text-gray-500
-                    active:text-gray-600
-                    rounded-lg
-                    px-1
-                    -mx-1
-                  "
+                  class="flex items-center justify-between w-full hover:bg-gray-50 dark:hover:bg-gray-900 text-gray-500 dark:text-gray-400 hover:text-gray-500 active:text-gray-600 rounded-lg px-1 -mx-1"
                   @click.prevent.stop="copyValueToClipboard(newToken)"
                 >
                   <span ref="theFieldValue">
@@ -51,7 +30,7 @@
               <HelpText class="mt-2 help-text-error">
                 {{
                   __(
-                    "Make sure to copy your new personal access token now. You won't be able to see it again!",
+                    "Make sure to copy your new personal access token now. You won't be able to see it again!"
                   )
                 }}
               </HelpText>
@@ -83,29 +62,29 @@ export default {
   emits: ["confirmed"],
   methods: {
     handleConfirmed() {
-      this.$emit("confirmed")
+      this.$emit("confirmed");
     },
     copyValueToClipboard(value) {
       if (navigator.clipboard) {
-        navigator.clipboard.writeText(value)
+        navigator.clipboard.writeText(value);
       } else if (window.clipboardData) {
-        window.clipboardData.setData("Text", value)
+        window.clipboardData.setData("Text", value);
       } else {
-        const input = document.createElement("input")
+        const input = document.createElement("input");
         const [scrollTop, scrollLeft] = [
           document.documentElement.scrollTop,
           document.documentElement.scrollLeft,
-        ]
-        document.body.appendChild(input)
-        input.value = value
-        input.focus()
-        input.select()
-        document.documentElement.scrollTop = scrollTop
-        document.documentElement.scrollLeft = scrollLeft
-        document.execCommand("copy")
-        input.remove()
+        ];
+        document.body.appendChild(input);
+        input.value = value;
+        input.focus();
+        input.select();
+        document.documentElement.scrollTop = scrollTop;
+        document.documentElement.scrollLeft = scrollLeft;
+        document.execCommand("copy");
+        input.remove();
       }
     },
   },
-}
+};
 </script>

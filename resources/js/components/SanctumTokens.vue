@@ -8,13 +8,7 @@
     </Heading>
     <Card>
       <div
-        class="
-          flex flex-col
-          md:flex-row md:items-center
-          py-3
-          border-b border-gray-200
-          dark:border-gray-700
-        "
+        class="flex flex-col md:flex-row md:items-center py-3 border-b border-gray-200 dark:border-gray-700"
       ></div>
       <div
         v-if="tokens.length"
@@ -24,55 +18,23 @@
           <thead class="bg-gray-50 dark:bg-gray-800">
             <tr>
               <th
-                class="
-                  td-fit
-                  uppercase
-                  text-xxs text-gray-500
-                  tracking-wide
-                  pl-5
-                  pr-2
-                  py-2
-                "
+                class="td-fit uppercase text-xxs text-gray-500 tracking-wide pl-5 pr-2 py-2"
               >
                 <span class="sr-only">spacer</span>
               </th>
               <th
-                class="
-                  text-left
-                  px-2
-                  whitespace-nowrap
-                  uppercase
-                  text-gray-500 text-xxs
-                  tracking-wide
-                  py-2
-                "
+                class="text-left px-2 whitespace-nowrap uppercase text-gray-500 text-xxs tracking-wide py-2"
               >
                 <span>{{ __("Name") }}</span>
               </th>
               <th
                 v-if="panel.fields[0].showAbilities"
-                class="
-                  text-left
-                  px-2
-                  whitespace-nowrap
-                  uppercase
-                  text-gray-500 text-xxs
-                  tracking-wide
-                  py-2
-                "
+                class="text-left px-2 whitespace-nowrap uppercase text-gray-500 text-xxs tracking-wide py-2"
               >
                 <span>{{ __("Abilities") }}</span>
               </th>
               <th
-                class="
-                  text-left
-                  px-2
-                  whitespace-nowrap
-                  uppercase
-                  text-gray-500 text-xxs
-                  tracking-wide
-                  py-2
-                "
+                class="text-left px-2 whitespace-nowrap uppercase text-gray-500 text-xxs tracking-wide py-2"
               >
                 <span>{{ __("Last Used") }}</span>
               </th>
@@ -119,14 +81,14 @@ export default {
       showCreateTokenModal: false,
       showCreatedTokenModal: false,
       createdToken: null,
-    }
+    };
   },
   created() {
-    this.fetchTokens()
+    this.fetchTokens();
   },
   methods: {
     createNewToken(tokenName, tokenAbilities) {
-      this.showCreateTokenModal = false
+      this.showCreateTokenModal = false;
       Nova.request()
         .post(
           `/nova-vendor/sanctum-tokens/tokens/${this.resourceName}/${this.resourceId}`,
@@ -136,26 +98,26 @@ export default {
               tokenAbilities === null
                 ? this.panel.fields[0].defaultAbilities
                 : tokenAbilities,
-          },
+          }
         )
         .then((response) => {
-          this.createdToken = response.data
-          this.showCreatedTokenModal = true
-        })
+          this.createdToken = response.data;
+          this.showCreatedTokenModal = true;
+        });
     },
     handleCreatedTokenConfirmation() {
-      this.showCreatedTokenModal = false
-      this.fetchTokens()
-      this.createdToken = null
+      this.showCreatedTokenModal = false;
+      this.fetchTokens();
+      this.createdToken = null;
     },
     fetchTokens() {
       Nova.request()
         .get(
-          `/nova-vendor/sanctum-tokens/tokens/${this.resourceName}/${this.resourceId}`,
+          `/nova-vendor/sanctum-tokens/tokens/${this.resourceName}/${this.resourceId}`
         )
         .then((response) => {
-          this.tokens = response.data.tokens
-        })
+          this.tokens = response.data.tokens;
+        });
     },
     revokeToken(tokenId) {
       Nova.request()
@@ -163,12 +125,12 @@ export default {
           `/nova-vendor/sanctum-tokens/tokens/${this.resourceName}/${this.resourceId}/revoke`,
           {
             token_id: tokenId,
-          },
+          }
         )
         .then(() => {
-          this.fetchTokens()
-        })
+          this.fetchTokens();
+        });
     },
   },
-}
+};
 </script>

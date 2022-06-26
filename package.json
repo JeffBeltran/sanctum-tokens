@@ -12,10 +12,11 @@
     "prod": "npm run production",
     "production": "mix --production",
     "prettier-check": "prettier --check \"{resources,routes,src}/**/*\"",
-    "eslint-check": "eslint .",
     "prettier-fix": "prettier --write \"{resources,routes,src}/**/*\"",
+    "eslint-check": "eslint .",
     "nova:install": "npm --prefix='../../vendor/laravel/nova' ci"
   },
+  "prettier": {},
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",

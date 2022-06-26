@@ -1,14 +1,7 @@
 <template>
   <Modal :show="show" @close-via-escape="$emit('cancel')">
     <div
-      class="
-        mx-auto
-        bg-white
-        dark:bg-gray-800
-        rounded-lg
-        shadow-lg
-        overflow-hidden
-      "
+      class="mx-auto bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden"
     >
       <slot>
         <ModalHeader>{{ __("Revoke Token") }}</ModalHeader>
@@ -17,14 +10,7 @@
             <div class="flex flex-col space-y-2">
               Are you sure you want to revoke the following token?
               <pre
-                class="
-                  p-4
-                  rounded
-                  mt-3
-                  text-red-500 text-center text-lg
-                  bg-gray-50
-                  bor
-                "
+                class="p-4 rounded mt-3 text-red-500 text-center text-lg bg-gray-50 bor"
                 >{{ tokenName }}</pre
               >
             </div>
@@ -62,8 +48,8 @@ export default {
   emits: ["confirmed", "cancel"],
   methods: {
     handleConfirmed() {
-      this.$emit("confirmed")
+      this.$emit("confirmed");
     },
   },
-}
+};
 </script>

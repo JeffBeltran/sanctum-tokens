@@ -1,26 +1,10 @@
 <template>
   <tr>
     <td
-      class="
-        py-2
-        border-t border-gray-100
-        dark:border-gray-700
-        px-2
-        td-fit
-        pl-5
-        pr-5
-        dark:bg-gray-800
-      "
+      class="py-2 border-t border-gray-100 dark:border-gray-700 px-2 td-fit pl-5 pr-5 dark:bg-gray-800"
     ></td>
     <td
-      class="
-        px-2
-        py-2
-        border-t border-gray-100
-        dark:border-gray-700
-        whitespace-nowrap
-        dark:bg-gray-800
-      "
+      class="px-2 py-2 border-t border-gray-100 dark:border-gray-700 whitespace-nowrap dark:bg-gray-800"
     >
       <div class="text-left text-left" via-resource="users" via-resource-id="1">
         <span class="whitespace-no-wrap">{{ token.name }}</span>
@@ -28,28 +12,14 @@
     </td>
     <td
       v-if="showAbilities"
-      class="
-        px-2
-        py-2
-        border-t border-gray-100
-        dark:border-gray-700
-        whitespace-nowrap
-        dark:bg-gray-800
-      "
+      class="px-2 py-2 border-t border-gray-100 dark:border-gray-700 whitespace-nowrap dark:bg-gray-800"
     >
       <div class="text-left text-left" via-resource="users" via-resource-id="1">
         <span class="whitespace-no-wrap">{{ token.abilities }}</span>
       </div>
     </td>
     <td
-      class="
-        px-2
-        py-2
-        border-t border-gray-100
-        dark:border-gray-700
-        whitespace-nowrap
-        dark:bg-gray-800
-      "
+      class="px-2 py-2 border-t border-gray-100 dark:border-gray-700 whitespace-nowrap dark:bg-gray-800"
     >
       <div
         class="text-left text-left"
@@ -61,26 +31,12 @@
       </div>
     </td>
     <td
-      class="
-        py-2
-        border-t border-gray-100
-        dark:border-gray-700
-        px-2
-        td-fit
-        text-right
-        align-middle
-        dark:bg-gray-800
-      "
+      class="py-2 border-t border-gray-100 dark:border-gray-700 px-2 td-fit text-right align-middle dark:bg-gray-800"
     >
       <div class="flex items-center justify-end space-x-0 text-gray-400">
         <button
           aria-label="Delete"
-          class="
-            toolbar-button
-            hover:text-primary-500
-            px-2
-            v-popper--has-tooltip
-          "
+          class="toolbar-button hover:text-primary-500 px-2 v-popper--has-tooltip"
           @click="showDeleteModal = true"
         >
           <svg
@@ -113,7 +69,7 @@
 </template>
 
 <script>
-import { DateTime } from "luxon"
+import { DateTime } from "luxon";
 
 export default {
   props: {
@@ -130,31 +86,31 @@ export default {
   data() {
     return {
       showDeleteModal: false,
-    }
+    };
   },
   computed: {
     lastUsed() {
       if (this.token.last_used_at) {
-        return DateTime.fromISO(this.token.last_used_at).toRelativeCalendar()
+        return DateTime.fromISO(this.token.last_used_at).toRelativeCalendar();
       } else {
-        return "—"
+        return "—";
       }
     },
     lastUsedTooltip() {
       if (this.token.last_used_at) {
-        return DateTime.fromISO(this.token.last_used_at).toFormat("f ZZZZ")
+        return DateTime.fromISO(this.token.last_used_at).toFormat("f ZZZZ");
       } else {
-        return "—"
+        return "—";
       }
     },
   },
   methods: {
     revokeToken() {
-      this.showDeleteModal = false
-      this.$emit("revoke-token", this.token.id)
+      this.showDeleteModal = false;
+      this.$emit("revoke-token", this.token.id);
     },
   },
-}
+};
 </script>
 
 <style lang="css" scoped></style>

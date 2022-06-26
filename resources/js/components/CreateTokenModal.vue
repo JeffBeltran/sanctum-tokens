@@ -1,14 +1,7 @@
 <template>
   <Modal :show="show" @close-via-escape="handleCancelled">
     <form
-      class="
-        mx-auto
-        bg-white
-        dark:bg-gray-800
-        rounded-lg
-        shadow-lg
-        overflow-hidden
-      "
+      class="mx-auto bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden"
       autocomplete="off"
       @submit.prevent.stop="handleCreate"
     >
@@ -94,21 +87,21 @@ export default {
     return {
       tokenName: null,
       tokenAbilities: null,
-    }
+    };
   },
   methods: {
     handleCreate() {
-      this.$emit("create", this.tokenName, this.tokenAbilities)
-      this.resetForm()
+      this.$emit("create", this.tokenName, this.tokenAbilities);
+      this.resetForm();
     },
     handleCancelled() {
-      this.resetForm()
-      this.$emit("close")
+      this.resetForm();
+      this.$emit("close");
     },
     resetForm() {
-      this.tokenName = null
-      this.tokenAbilities = null
+      this.tokenName = null;
+      this.tokenAbilities = null;
     },
   },
-}
+};
 </script>

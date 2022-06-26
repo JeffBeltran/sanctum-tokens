@@ -25,5 +25,5 @@
 <script>
 export default {
   emits: ["showCreateTokenModal"],
-}
+};
 </script>
