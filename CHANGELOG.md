@@ -1,3 +1,10 @@
+# [2.0.0](https://github.com/JeffBeltran/sanctum-tokens/compare/v1.5.8...v2.0.0) (2022-06-27)
+
+
+### Bug Fixes
+
+* dependency requirement...i hope ([aff7637](https://github.com/JeffBeltran/sanctum-tokens/commit/aff7637374322296c4bcc9ad855809a42065044c))
+
 ## [1.5.8](https://github.com/JeffBeltran/sanctum-tokens/compare/v1.5.7...v1.5.8) (2021-09-17)
 
 ## [1.5.7](https://github.com/JeffBeltran/sanctum-tokens/compare/v1.5.6...v1.5.7) (2021-09-17)
