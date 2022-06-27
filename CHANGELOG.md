@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/JeffBeltran/sanctum-tokens/compare/v2.0.0...v2.0.1) (2022-06-27)
+
+
+### Bug Fixes
+
+* only updated screenshots on readme, but need to republish ([cf2102e](https://github.com/JeffBeltran/sanctum-tokens/commit/cf2102e72d4f03e9b9eaae9f02701e0a48150eb0))
+
 # [2.0.0](https://github.com/JeffBeltran/sanctum-tokens/compare/v1.5.8...v2.0.0) (2022-06-27)
 
 
