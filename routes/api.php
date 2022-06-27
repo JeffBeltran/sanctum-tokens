@@ -14,14 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get(
-  "tokens/{resourceName}/{id}",
-  "\Jeffbeltran\SanctumTokens\Http\SanctumController@tokens"
+    "tokens/{resourceName}/{id}",
+    "\Jeffbeltran\SanctumTokens\Http\SanctumController@tokens"
 );
 Route::post(
-  "tokens/{resourceName}/{id}",
-  "\Jeffbeltran\SanctumTokens\Http\SanctumController@createToken"
+    "tokens/{resourceName}/{id}",
+    "\Jeffbeltran\SanctumTokens\Http\SanctumController@createToken"
 );
 Route::post(
-  "tokens/{resourceName}/{id}/revoke",
-  "\Jeffbeltran\SanctumTokens\Http\SanctumController@revoke"
+    "tokens/{resourceName}/{id}/revoke",
+    "\Jeffbeltran\SanctumTokens\Http\SanctumController@revoke"
 );

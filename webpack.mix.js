@@ -1,7 +1,9 @@
-let mix = require("laravel-mix");
+const mix = require("laravel-mix")
+
+require("./nova.mix")
 
 mix
   .setPublicPath("dist")
   .js("resources/js/tool.js", "js")
-  .vue()
-  .sass("resources/sass/tool.scss", "css");
+  .vue({ version: 3 })
+  .nova("JeffBeltran/sanctum-tokens")

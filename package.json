@@ -12,8 +12,11 @@
     "prod": "npm run production",
     "production": "mix --production",
     "prettier-check": "prettier --check \"{resources,routes,src}/**/*\"",
-    "prettier-fix": "prettier --write \"{resources,routes,src}/**/*\""
+    "prettier-fix": "prettier --write \"{resources,routes,src}/**/*\"",
+    "eslint-check": "eslint .",
+    "nova:install": "npm --prefix='../../vendor/laravel/nova' ci"
   },
+  "prettier": {},
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
@@ -21,19 +24,23 @@
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/exec": "^5.0.0",
     "@semantic-release/git": "^9.0.0",
+    "@vue/compiler-sfc": "^3.2.37",
     "cross-env": "^7.0.3",
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-vue": "^9.1.1",
     "laravel-mix": "^6.0.11",
     "postcss": "^8.1",
-    "prettier": "^2.2.1",
+    "prettier": "^2.7.1",
     "pretty-quick": "^3.1.0",
-    "resolve-url-loader": "^3.1.2",
-    "sass": "^1.32.6",
-    "sass-loader": "8.*",
     "semantic-release": "^17.3.7",
-    "vue-loader": "^15.9.5",
-    "vue-template-compiler": "^2.6.12"
+    "vue-loader": "^16.8.3"
   },
   "dependencies": {
-    "vue": "^2.6.12"
+    "luxon": "^2.4.0"
   }
 }
