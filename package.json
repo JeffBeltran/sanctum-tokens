@@ -41,6 +41,6 @@
     "vue-loader": "^16.8.3"
   },
   "dependencies": {
-    "luxon": "^2.4.0"
+    "luxon": "^2.5.2"
   }
 }
