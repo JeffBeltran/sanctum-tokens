@@ -52,6 +52,8 @@ class SanctumTokens extends ResourceTool
         ]);
     }
 
+    // HOLA
+
     /**
      * Get the component name for the resource tool.
      *
