@@ -30,19 +30,37 @@
               v-if="options.showAbilities"
               class="flex flex-col space-y-2 mt-3"
             >
-              <label for="abilities" class="inline-block leading-tight">
-                {{ __("Abilities") }}
-              </label>
-              <input
-                id="abilities"
-                v-model="tokenAbilities"
-                type="text"
-                :placeholder="options.defaultAbilities"
-                class="w-full form-control form-input form-input-bordered"
-              />
-              <p>
-                {{ __("Comma separated list of abilities to apply to token.") }}
-              </p>
+              <div v-if="options.displayAbilitiesType === 'inline'">
+                <label for="abilities" class="inline-block leading-tight">
+                  {{ __("Abilities") }}
+                </label>
+                <input
+                  id="abilities"
+                  v-model="tokenAbilities"
+                  type="text"
+                  :placeholder="options.defaultAbilities.join(', ')"
+                  class="w-full form-control form-input form-input-bordered"
+                />
+                <p>
+                  {{ __("Comma separated list of abilities to apply to token.") }}
+                </p>
+              </div>
+
+              <div v-if="options.displayAbilitiesType === 'checkboxes'" class="flex flex-col">
+                <label for="abilities" class="mb-2 inline-block leading-tight">
+                  {{ __("Abilities") }}
+                </label>
+                <label class="mb-2 md:px-8 md:w-3/5 w-full md:py-2">
+                  <input type="checkbox" class="checkbox mr-2" v-model="allAbilitiesSelected" @change="allAbilitiesSelectedChange"> {{ __("Select all") }}
+                </label>
+                <hr>
+                <label v-for="ability in availableAbilities" class="mt-2 md:px-8 md:w-3/5 w-full md:py-2">
+                  <input type="checkbox" class="checkbox mr-2" v-model="ability.selected"> {{ ability.name }}
+                </label>
+                <p class="mt-2 italic">
+                  {{ __("Select the required abilities for this token.") }}
+                </p>
+              </div>
             </div>
           </div>
         </ModalContent>
@@ -87,11 +105,20 @@ export default {
     return {
       tokenName: null,
       tokenAbilities: null,
+      availableAbilities: [],
+      allAbilitiesSelected: false,
+      selectedAbilities: [],
     };
   },
+
+  mounted() {
+    this.setAbilitiesList(false, true);
+  },
+
+
   methods: {
     handleCreate() {
-      this.$emit("create", this.tokenName, this.tokenAbilities);
+      this.$emit("create", this.tokenName, this.getListOfSelectedAbilities());
       this.resetForm();
     },
     handleCancelled() {
@@ -101,6 +128,37 @@ export default {
     resetForm() {
       this.tokenName = null;
       this.tokenAbilities = null;
+      this.availableAbilities = [];
+      this.allAbilitiesSelected = false;
+      this.selectedAbilities = [];
+    },
+    setAbilitiesList(forcedStatus = false, useDefaultAbilities = false) {
+      this.availableAbilities = this.options.abilitiesAvailable.map((ability, index) => ({
+        id: index,
+        name: ability,
+        selected: useDefaultAbilities ? this.options.defaultAbilities.includes(ability) : forcedStatus,
+      }));
+    },
+    allAbilitiesSelectedChange() {
+      if (this.allAbilitiesSelected) {
+        return this.setAbilitiesList(true)
+      }
+      this.setAbilitiesList(false)
+    },
+    getListOfSelectedAbilities() {
+      let abilitiesList = '';
+
+      switch (this.options.displayAbilitiesType) {
+        case 'inline':
+          abilitiesList = this.tokenAbilities
+          break;
+        case 'checkboxes':
+          abilitiesList = this.availableAbilities.filter((ability) => ability.selected).map((ability) => ability.name).join(',')
+          break;
+        default:
+          break;
+      }
+      return abilitiesList;
     },
   },
 };
