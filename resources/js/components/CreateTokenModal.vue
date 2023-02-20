@@ -46,7 +46,7 @@
                 </p>
               </div>
 
-              <div v-if="options.displayAbilitiesType === 'checkboxes'" class="flex flex-col">
+              <div v-if="options.displayAbilitiesType === 'checkboxes' && availableAbilities.length > 0" class="flex flex-col">
                 <label for="abilities" class="mb-2 inline-block leading-tight">
                   {{ __("Abilities") }}
                 </label>
@@ -55,7 +55,7 @@
                 </label>
                 <hr>
                 <label v-for="ability in availableAbilities" class="mt-2 md:px-8 md:w-3/5 w-full md:py-2">
-                  <input type="checkbox" class="checkbox mr-2" v-model="ability.selected"> {{ ability.name }}
+                  <input type="checkbox" class="checkbox mr-2" v-model="ability.selected" @change="checkAbilitiesStatus"> {{ ability.name }}
                 </label>
                 <p class="mt-2 italic">
                   {{ __("Select the required abilities for this token.") }}
@@ -113,6 +113,7 @@ export default {
 
   mounted() {
     this.setAbilitiesList(false, true);
+    this.checkAbilitiesStatus();
   },
 
 
@@ -160,6 +161,14 @@ export default {
       }
       return abilitiesList;
     },
+
+    checkAbilitiesStatus() {
+      if (this.availableAbilities.every((ability) => ability.selected)) {
+        this.allAbilitiesSelected = true;
+      } else {
+        this.allAbilitiesSelected = false;
+      }
+    }
   },
 };
 </script>
