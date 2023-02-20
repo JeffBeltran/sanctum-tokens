@@ -35,6 +35,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.setAbilitiesList(false, true);
+    this.checkAbilitiesStatus();
   },
   methods: {
     handleCreate: function handleCreate() {
@@ -93,6 +94,15 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       return abilitiesList;
+    },
+    checkAbilitiesStatus: function checkAbilitiesStatus() {
+      if (this.availableAbilities.every(function (ability) {
+        return ability.selected;
+      })) {
+        this.allAbilitiesSelected = true;
+      } else {
+        this.allAbilitiesSelected = false;
+      }
     }
   }
 });
@@ -399,7 +409,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
         "class": "mx-auto bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden",
         autocomplete: "off",
-        onSubmit: _cache[4] || (_cache[4] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
+        onSubmit: _cache[5] || (_cache[5] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
           return $options.handleCreate && $options.handleCreate.apply($options, arguments);
         }, ["prevent", "stop"]))
       }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default", {}, function () {
@@ -444,7 +454,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             /* PROPS */
             , _hoisted_8), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.tokenAbilities]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__("Comma separated list of abilities to apply to token.")), 1
             /* TEXT */
-            )])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.options.displayAbilitiesType === 'checkboxes' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__("Abilities")), 1
+            )])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.options.displayAbilitiesType === 'checkboxes' && $data.availableAbilities.length > 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.__("Abilities")), 1
             /* TEXT */
             ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
               type: "checkbox",
@@ -465,9 +475,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
                 "class": "checkbox mr-2",
                 "onUpdate:modelValue": function onUpdateModelValue($event) {
                   return ability.selected = $event;
-                }
-              }, null, 8
-              /* PROPS */
+                },
+                onChange: _cache[4] || (_cache[4] = function () {
+                  return $options.checkAbilitiesStatus && $options.checkAbilitiesStatus.apply($options, arguments);
+                })
+              }, null, 40
+              /* PROPS, HYDRATE_EVENTS */
               , _hoisted_14), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, ability.selected]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(ability.name), 1
               /* TEXT */
               )]);
