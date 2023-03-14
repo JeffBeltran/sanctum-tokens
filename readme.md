@@ -132,6 +132,9 @@ public function fields(Request $request)
 
 ```
 
+![image](https://user-images.githubusercontent.com/36328155/225020087-e49993da-b440-46d3-866b-509330f05f03.png)
+
+
 This works well with the the `hideAbilities()` method if you want to hide the abilities logic from your users.
 
 
