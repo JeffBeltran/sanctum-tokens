@@ -129,9 +129,8 @@ export default {
     resetForm() {
       this.tokenName = null;
       this.tokenAbilities = null;
-      this.availableAbilities = [];
-      this.allAbilitiesSelected = false;
-      this.selectedAbilities = [];
+      this.setAbilitiesList(false, true);
+      this.checkAbilitiesStatus();
     },
     setAbilitiesList(forcedStatus = false, useDefaultAbilities = false) {
       this.availableAbilities = this.options.abilitiesAvailable.map((ability, index) => ({
