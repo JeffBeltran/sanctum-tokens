@@ -72,11 +72,17 @@ public function fields(Request $request)
 
 ```
 
+### Abilities displaying type
+
+Several types of selection are available for abilities. You can choose which type to use by calling the `displayAbilitiesType()` method. Here is the list of existing types: 
+
+- "inline": add a single text input where users can write their needed abilities
+- "checkboxes": add a checkbox section to select a list of abilities from the `abilitiesAvailable()` method.
+
 ### Set Default Abilities
 
+#### When using "inline" displaying type :
 If you don't want to use the default `*` token ability you can set your own by simply passing an array of strings to the `defaultAbilities()` method on the field.
-
-This works well with the the `hideAbilities()` method if you want to hide the abilities logic from your users.
 
 ```php
 use Jeffbeltran\SanctumTokens\SanctumTokens;
@@ -97,6 +103,40 @@ public function fields(Request $request)
 }
 
 ```
+
+#### When using "checkboxes" displaying type :
+If you are using the checkboxes displaying type, you'll need to set the list of available abilities by calling the `abilitiesAvailable()` method. 
+
+You can also use the `defaultAbilities()` method to indicate which abilities will be selected by default when creating a new token.
+
+```php
+use Jeffbeltran\SanctumTokens\SanctumTokens;
+
+/**
+ * Get the fields displayed by the resource.
+ *
+ * @param  \Illuminate\Http\Request  $request
+ * @return array
+ */
+public function fields(Request $request)
+{
+    return [
+        ID::make('ID', 'id')->sortable(),
+        ...
+        SanctumTokens::make()
+                ->defaultAbilities(['foo'])
+                ->abilitiesAvailable(['foo', 'bar-baz'])
+                ->displayAbilitiesType('checkboxes'),
+    ];
+}
+
+```
+
+![image](https://user-images.githubusercontent.com/36328155/225020087-e49993da-b440-46d3-866b-509330f05f03.png)
+
+
+This works well with the the `hideAbilities()` method if you want to hide the abilities logic from your users.
+
 
 ### Localization
 
