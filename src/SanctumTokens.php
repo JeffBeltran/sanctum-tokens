@@ -9,14 +9,14 @@ class SanctumTokens extends ResourceTool
     private $defaultOptions = [
         "showAbilities" => true,
         "defaultAbilities" => "*",
-        "displayAbilitiesType" => "inline",
-        "abilitiesAvailable" => [],
+        "defaultExpirationDuration" => null,
     ];
 
     public function __construct()
     {
         parent::__construct();
 
+        $this->defaultOptions['defaultExpirationDuration'] = config('sanctum.expiration');
         return $this->withMeta($this->defaultOptions);
     }
 
@@ -50,26 +50,7 @@ class SanctumTokens extends ResourceTool
     public function defaultAbilities(array $abilities)
     {
         return $this->withMeta([
-            "defaultAbilities" => $abilities,
-        ]);
-    }
-
-    /**
-     * This will list all available abilities
-     *
-     * @return $this
-     */
-    public function abilitiesAvailable(array $abilitiesAvailable)
-    {
-        return $this->withMeta([
-            "abilitiesAvailable" => $abilitiesAvailable,
-        ]);
-    }
-
-    public function displayAbilitiesType(string $type = 'inline')
-    {
-        return $this->withMeta([
-            "displayAbilitiesType" => $type,
+            "defaultAbilities" => implode(", ", $abilities),
         ]);
     }
 

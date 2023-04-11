@@ -31,6 +31,17 @@
       </div>
     </td>
     <td
+      class="px-2 py-2 border-t border-gray-100 dark:border-gray-700 whitespace-nowrap dark:bg-gray-800"
+    >
+      <div
+        class="text-left text-left"
+        via-resource="users"
+        via-resource-id="1"
+      >
+        <span class="whitespace-no-wrap" :class="expirationDate.cssClass ? expirationDate.cssClass : ''">{{ expirationDate.date }}</span>
+      </div>
+    </td>
+    <td
       class="py-2 border-t border-gray-100 dark:border-gray-700 px-2 td-fit text-right align-middle dark:bg-gray-800"
     >
       <div class="flex items-center justify-end space-x-0 text-gray-400">
@@ -81,6 +92,10 @@ export default {
       required: true,
       type: Boolean,
     },
+    defaultExpirationDuration: {
+      required: true,
+      type: Number,
+    }
   },
   emits: ["revoke-token"],
   data() {
@@ -103,6 +118,32 @@ export default {
         return "—";
       }
     },
+    expirationDate() {
+      let tokenExpirationDate = this.token.expires_at ? new Date(this.token.expires_at) : null;
+      const defaultExpirationDate = this.defaultExpirationDuration
+
+      if (defaultExpirationDate) {
+        const tokenCreationDate = new Date(this.token.created_at);
+
+        // Add default expiration time to created token date
+        const defaultTokenExpirationDate = new Date(tokenCreationDate.getTime() + this.defaultExpirationDuration * 60000);
+        const tokenCustomExpirationDate = this.token.expires_at ? new Date(this.token.expires_at) : null;
+
+        tokenExpirationDate = tokenCustomExpirationDate ? (tokenCustomExpirationDate < defaultTokenExpirationDate ? tokenCustomExpirationDate : defaultTokenExpirationDate) : defaultTokenExpirationDate;
+      }
+
+      const today = new Date();
+      const diffInDays = tokenExpirationDate ? ((today - tokenExpirationDate) / (1000 * 3600 * 24)) : null;
+      return tokenExpirationDate
+        ? {
+          date: tokenExpirationDate.toLocaleDateString(),
+          cssClass: diffInDays ? (diffInDays > -10 && diffInDays < 0 ? 'warning-color' : (diffInDays > 0 ? 'expired-color' : '')) : null,
+        }
+        : {
+          date: '—',
+          cssClass: null,
+        };
+    },
   },
   methods: {
     revokeToken() {
@@ -113,4 +154,12 @@ export default {
 };
 </script>
 
-<style lang="css" scoped></style>
+<style lang="css" scoped>
+.warning-color {
+    color: rgb(249 115 22);
+}
+
+.expired-color {
+    color: rgb(239 68 68);
+}
+</style>

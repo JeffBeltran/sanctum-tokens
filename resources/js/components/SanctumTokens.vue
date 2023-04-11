@@ -39,6 +39,12 @@
                 <span>{{ __("Last Used") }}</span>
               </th>
 
+              <th
+                class="text-left px-2 whitespace-nowrap uppercase text-gray-500 text-xxs tracking-wide py-2"
+              >
+                <span>{{ __("Expiration Date") }}</span>
+              </th>
+
               <!-- View, Edit, and Delete -->
               <th class="uppercase text-xxs tracking-wide px-2 py-2">
                 <span class="sr-only">{{ __("Controls") }}</span>
@@ -46,13 +52,14 @@
             </tr>
           </thead>
           <tbody>
-            <TokenRow
-              v-for="token in tokens"
-              :key="token.id"
-              :token="token"
-              :show-abilities="panel.fields[0].showAbilities"
-              @revoke-token="revokeToken"
-            />
+          <TokenRow
+            v-for="token in tokens"
+            :key="token.id"
+            :token="token"
+            :default-expiration-duration="panel.fields[0].defaultExpirationDuration"
+            :show-abilities="panel.fields[0].showAbilities"
+            @revoke-token="revokeToken"
+          />
           </tbody>
         </table>
       </div>
