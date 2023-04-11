@@ -16,43 +16,49 @@
       >
         <table class="table w-full" cellspacing="0" cellpadding="0">
           <thead class="bg-gray-50 dark:bg-gray-800">
-            <tr>
-              <th
-                class="td-fit uppercase text-xxs text-gray-500 tracking-wide pl-5 pr-2 py-2"
-              >
-                <span class="sr-only">spacer</span>
-              </th>
-              <th
-                class="text-left px-2 whitespace-nowrap uppercase text-gray-500 text-xxs tracking-wide py-2"
-              >
-                <span>{{ __("Name") }}</span>
-              </th>
-              <th
-                v-if="panel.fields[0].showAbilities"
-                class="text-left px-2 whitespace-nowrap uppercase text-gray-500 text-xxs tracking-wide py-2"
-              >
-                <span>{{ __("Abilities") }}</span>
-              </th>
-              <th
-                class="text-left px-2 whitespace-nowrap uppercase text-gray-500 text-xxs tracking-wide py-2"
-              >
-                <span>{{ __("Last Used") }}</span>
-              </th>
+          <tr>
+            <th
+              class="td-fit uppercase text-xxs text-gray-500 tracking-wide pl-5 pr-2 py-2"
+            >
+              <span class="sr-only">spacer</span>
+            </th>
+            <th
+              class="text-left px-2 whitespace-nowrap uppercase text-gray-500 text-xxs tracking-wide py-2"
+            >
+              <span>{{ __("Name") }}</span>
+            </th>
+            <th
+              v-if="panel.fields[0].showAbilities"
+              class="text-left px-2 whitespace-nowrap uppercase text-gray-500 text-xxs tracking-wide py-2"
+            >
+              <span>{{ __("Abilities") }}</span>
+            </th>
+            <th
+              class="text-left px-2 whitespace-nowrap uppercase text-gray-500 text-xxs tracking-wide py-2"
+            >
+              <span>{{ __("Last Used") }}</span>
+            </th>
+            <th
+              class="text-left px-2 whitespace-nowrap uppercase text-gray-500 text-xxs tracking-wide py-2"
+            >
+              <span>{{ __("Expiration Date") }}</span>
+            </th>
 
-              <!-- View, Edit, and Delete -->
-              <th class="uppercase text-xxs tracking-wide px-2 py-2">
-                <span class="sr-only">{{ __("Controls") }}</span>
-              </th>
-            </tr>
+            <!-- View, Edit, and Delete -->
+            <th class="uppercase text-xxs tracking-wide px-2 py-2">
+              <span class="sr-only">{{ __("Controls") }}</span>
+            </th>
+          </tr>
           </thead>
           <tbody>
-            <TokenRow
-              v-for="token in tokens"
-              :key="token.id"
-              :token="token"
-              :show-abilities="panel.fields[0].showAbilities"
-              @revoke-token="revokeToken"
-            />
+          <TokenRow
+            v-for="token in tokens"
+            :key="token.id"
+            :token="token"
+            :default-expiration-duration="panel.fields[0].defaultExpirationDuration"
+            :show-abilities="panel.fields[0].showAbilities"
+            @revoke-token="revokeToken"
+          />
           </tbody>
         </table>
       </div>

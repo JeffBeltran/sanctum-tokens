@@ -9,12 +9,14 @@ class SanctumTokens extends ResourceTool
     private $defaultOptions = [
         "showAbilities" => true,
         "defaultAbilities" => "*",
+        "defaultExpirationDuration" => null,
     ];
 
     public function __construct()
     {
         parent::__construct();
 
+        $this->defaultOptions['defaultExpirationDuration'] = config('sanctum.expiration');
         return $this->withMeta($this->defaultOptions);
     }
 
