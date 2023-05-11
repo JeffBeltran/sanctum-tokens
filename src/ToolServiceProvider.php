@@ -28,8 +28,8 @@ class ToolServiceProvider extends ServiceProvider
         });
 
         $this->publishes([
-            __DIR__ . "/../resources/lang" => resource_path(
-                "lang/vendor/" . static::$name
+            __DIR__ . "/../resources/lang" => lang_path(
+                "vendor/" . static::$name
             ),
         ]);
 
@@ -73,8 +73,8 @@ class ToolServiceProvider extends ServiceProvider
      */
     private static function getTranslations(): array
     {
-        $translationFile = resource_path(
-            "lang/vendor/" . static::$name . "/" . app()->getLocale() . ".json"
+        $translationFile = lang_path(
+            "vendor/" . static::$name . "/" . app()->getLocale() . ".json"
         );
 
         if (!is_readable($translationFile)) {
