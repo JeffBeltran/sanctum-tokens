@@ -8,7 +8,7 @@
         <ModalContent>
           <div class="flex flex-col">
             <div class="flex flex-col space-y-2">
-              Are you sure you want to revoke the following token?
+              {{ __("Are you sure you want to revoke the following token?") }}
               <pre
                 class="p-4 rounded mt-3 text-red-500 text-center text-lg bg-gray-50 bor"
                 >{{ tokenName }}</pre
