@@ -1,3 +1,10 @@
+## [2.0.3](https://github.com/JeffBeltran/sanctum-tokens/compare/v2.0.2...v2.0.3) (2023-05-13)
+
+
+### Bug Fixes
+
+* lang path was hardcoded to resource path ([f9e5ae1](https://github.com/JeffBeltran/sanctum-tokens/commit/f9e5ae18d630cf6866ea1c49ba68bdf763884041))
+
 ## [2.0.2](https://github.com/JeffBeltran/sanctum-tokens/compare/v2.0.1...v2.0.2) (2023-05-13)
 
 ## [2.0.1](https://github.com/JeffBeltran/sanctum-tokens/compare/v2.0.0...v2.0.1) (2022-06-27)
