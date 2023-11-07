@@ -4,6 +4,7 @@ import CreatedTokenModal from "./components/CreatedTokenModal";
 import DeleteTokenModal from "./components/DeleteTokenModal";
 import NoTokens from "./components/NoTokens";
 import TokenRow from "./components/TokenRow";
+import SanctumLoadingButton from "./components/SanctumLoadingButton.vue";
 
 Nova.booting((app, _store) => {
   app.component("SanctumTokens", SanctumTokens);
@@ -12,4 +13,7 @@ Nova.booting((app, _store) => {
   app.component("DeleteTokenModal", DeleteTokenModal);
   app.component("NoTokens", NoTokens);
   app.component("TokenRow", TokenRow);
+
+  // Fix because it was deleted from laravel nova core
+  app.component("SanctumLoadingButton", SanctumLoadingButton);
 });
