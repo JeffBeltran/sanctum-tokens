@@ -14,6 +14,6 @@ Nova.booting((app, _store) => {
   app.component("NoTokens", NoTokens);
   app.component("TokenRow", TokenRow);
 
-  // Fix because it was deleted from laravel nova core
+  // Fix because it was deleted from laravel nova core since 3.28
   app.component("SanctumLoadingButton", SanctumLoadingButton);
 });
