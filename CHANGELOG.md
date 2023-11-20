@@ -1,3 +1,10 @@
+## [2.0.4](https://github.com/JeffBeltran/sanctum-tokens/compare/v2.0.3...v2.0.4) (2023-11-20)
+
+
+### Bug Fixes
+
+* reintroduce `LoadingButton` component to fix creation modal submission ([92b1577](https://github.com/JeffBeltran/sanctum-tokens/commit/92b1577886314e850a71c51237631e60b8375854)), closes [#92](https://github.com/JeffBeltran/sanctum-tokens/issues/92)
+
 ## [2.0.3](https://github.com/JeffBeltran/sanctum-tokens/compare/v2.0.2...v2.0.3) (2023-05-13)
 
 
