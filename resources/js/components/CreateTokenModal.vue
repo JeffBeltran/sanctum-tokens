@@ -58,7 +58,7 @@
             {{ __("Cancel") }}
           </LinkButton>
 
-          <LoadingButton
+          <SanctumLoadingButton
             ref="confirmButton"
             :processing="false"
             :disabled="false"
@@ -66,7 +66,7 @@
             type="submit"
           >
             {{ __("Create New Token") }}
-          </LoadingButton>
+          </SanctumLoadingButton>
         </div>
       </ModalFooter>
     </form>
