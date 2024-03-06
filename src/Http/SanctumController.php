@@ -10,7 +10,7 @@ class SanctumController
     public function tokens($resourceName, $id)
     {
         return Nova::modelInstanceForKey($resourceName)
-            ->with("tokens")
+            ->with('tokens')
             ->find($id);
     }
 
@@ -18,7 +18,7 @@ class SanctumController
     {
         $user = Nova::modelInstanceForKey($resourceName)->find($id);
 
-        $abilities = collect(explode(",", $request->abilities))
+        $abilities = collect(explode(',', $request->abilities))
             ->map(function ($item) {
                 return trim($item);
             })
@@ -32,7 +32,7 @@ class SanctumController
     public function revoke(Request $request, $resourceName, $id)
     {
         $user = Nova::modelInstanceForKey($resourceName)
-            ->with("tokens")
+            ->with('tokens')
             ->find($id);
 
         return $user

@@ -14,7 +14,7 @@ class ToolServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public static $name = "sanctum-tokens";
+    public static $name = 'sanctum-tokens';
 
     /**
      * Bootstrap any application services.
@@ -28,14 +28,14 @@ class ToolServiceProvider extends ServiceProvider
         });
 
         $this->publishes([
-            __DIR__ . "/../resources/lang" => lang_path(
-                "vendor/" . static::$name
+            __DIR__.'/../resources/lang' => lang_path(
+                'vendor/'.static::$name
             ),
         ]);
 
         Nova::serving(function (ServingNova $event) {
-            Nova::script("sanctum-tokens", __DIR__ . "/../dist/js/tool.js");
-            Nova::style("sanctum-tokens", __DIR__ . "/../dist/css/tool.css");
+            Nova::script('sanctum-tokens', __DIR__.'/../dist/js/tool.js');
+            Nova::style('sanctum-tokens', __DIR__.'/../dist/css/tool.css');
             Nova::translations(static::getTranslations());
         });
     }
@@ -58,14 +58,14 @@ class ToolServiceProvider extends ServiceProvider
     {
         if (
             $this->app->routesAreCached() ||
-            false === config("sanctum.routes")
+            config('sanctum.routes') === false
         ) {
             return;
         }
 
-        Route::middleware(["nova"])
-            ->prefix("nova-vendor/" . static::$name)
-            ->group(__DIR__ . "/../routes/api.php");
+        Route::middleware(['nova'])
+            ->prefix('nova-vendor/'.static::$name)
+            ->group(__DIR__.'/../routes/api.php');
     }
 
     /**
@@ -74,14 +74,14 @@ class ToolServiceProvider extends ServiceProvider
     private static function getTranslations(): array
     {
         $translationFile = lang_path(
-            "vendor/" . static::$name . "/" . app()->getLocale() . ".json"
+            'vendor/'.static::$name.'/'.app()->getLocale().'.json'
         );
 
-        if (!is_readable($translationFile)) {
+        if (! is_readable($translationFile)) {
             $translationFile =
-                __DIR__ . "/../resources/lang/" . app()->getLocale() . ".json";
+                __DIR__.'/../resources/lang/'.app()->getLocale().'.json';
 
-            if (!is_readable($translationFile)) {
+            if (! is_readable($translationFile)) {
                 return [];
             }
         }

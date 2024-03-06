@@ -7,8 +7,8 @@ use Laravel\Nova\ResourceTool;
 class SanctumTokens extends ResourceTool
 {
     private $defaultOptions = [
-        "showAbilities" => true,
-        "defaultAbilities" => "*",
+        'showAbilities' => true,
+        'defaultAbilities' => '*',
     ];
 
     public function __construct()
@@ -25,7 +25,7 @@ class SanctumTokens extends ResourceTool
      */
     public function name()
     {
-        return "Sanctum Tokens";
+        return 'Sanctum Tokens';
     }
 
     /**
@@ -36,7 +36,7 @@ class SanctumTokens extends ResourceTool
     public function hideAbilities()
     {
         return $this->withMeta([
-            "showAbilities" => false,
+            'showAbilities' => false,
         ]);
     }
 
@@ -48,7 +48,7 @@ class SanctumTokens extends ResourceTool
     public function defaultAbilities(array $abilities)
     {
         return $this->withMeta([
-            "defaultAbilities" => implode(", ", $abilities),
+            'defaultAbilities' => implode(', ', $abilities),
         ]);
     }
 
@@ -59,6 +59,6 @@ class SanctumTokens extends ResourceTool
      */
     public function component()
     {
-        return "SanctumTokens";
+        return 'SanctumTokens';
     }
 }
