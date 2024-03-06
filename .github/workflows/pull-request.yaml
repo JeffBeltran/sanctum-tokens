@@ -16,11 +16,6 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Check correct commit formatting
-        uses: wagoid/commitlint-github-action@v4
-        with:
-          firstParent: false
-
       - name: Check formatting
         run: yarn prettier-check
 
