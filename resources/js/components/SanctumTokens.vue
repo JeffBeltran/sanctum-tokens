@@ -38,6 +38,11 @@
               >
                 <span>{{ __("Last Used") }}</span>
               </th>
+              <th
+                class="text-left px-2 whitespace-nowrap uppercase text-gray-500 text-xxs tracking-wide py-2"
+              >
+                <span>{{ __("Expires") }}</span>
+              </th>
 
               <!-- View, Edit, and Delete -->
               <th class="uppercase text-xxs tracking-wide px-2 py-2">
