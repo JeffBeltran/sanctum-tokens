@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/JeffBeltran/sanctum-tokens/compare/v2.0.5...v2.1.0) (2024-03-07)
+
+
+### Features
+
+* show token expiration ([#100](https://github.com/JeffBeltran/sanctum-tokens/issues/100)) ([374d450](https://github.com/JeffBeltran/sanctum-tokens/commit/374d450e5fee09707dd6387a75242eed139ef9c9)), closes [#84](https://github.com/JeffBeltran/sanctum-tokens/issues/84)
+
 ## [2.0.5](https://github.com/JeffBeltran/sanctum-tokens/compare/v2.0.4...v2.0.5) (2024-03-06)
 
 ## [2.0.4](https://github.com/JeffBeltran/sanctum-tokens/compare/v2.0.3...v2.0.4) (2023-11-20)

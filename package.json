@@ -1,6 +1,6 @@
 {
   "name": "sanctum-tokens",
-  "version": "2.0.5",
+  "version": "2.1.0",
   "repository": "github:JeffBeltran/sanctum-tokens",
   "private": true,
   "scripts": {
