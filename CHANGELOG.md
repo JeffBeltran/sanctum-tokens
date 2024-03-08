@@ -1,3 +1,10 @@
+## [2.1.1](https://github.com/JeffBeltran/sanctum-tokens/compare/v2.1.0...v2.1.1) (2024-03-08)
+
+
+### Bug Fixes
+
+* update CSS to correctly match default nova styles ([#101](https://github.com/JeffBeltran/sanctum-tokens/issues/101)) ([67424e7](https://github.com/JeffBeltran/sanctum-tokens/commit/67424e7e5d5ab02b0e848cf45d2251f078f2d4b4))
+
 # [2.1.0](https://github.com/JeffBeltran/sanctum-tokens/compare/v2.0.5...v2.1.0) (2024-03-07)
 
 
