@@ -27,9 +27,13 @@
           >
             {{ __("Cancel") }}
           </LinkButton>
-          <DangerButton type="button" @click.prevent="handleConfirmed">
+          <NovaButton
+            type="submit"
+            state="danger"
+            @click.prevent="handleConfirmed"
+          >
             {{ __("Revoke Token") }}
-          </DangerButton>
+          </NovaButton>
         </div>
       </ModalFooter>
     </div>
@@ -37,7 +41,12 @@
 </template>
 
 <script>
+import { Button as NovaButton } from "laravel-nova-ui";
+
 export default {
+  components: {
+    NovaButton,
+  },
   props: {
     tokenName: {
       required: true,
