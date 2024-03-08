@@ -22,7 +22,7 @@
                 list="name-list"
                 type="text"
                 placeholder="Name"
-                class="w-full form-control form-input form-input-bordered"
+                class="w-full form-control form-input form-control-bordered"
                 required
               />
             </div>
@@ -38,7 +38,7 @@
                 v-model="tokenAbilities"
                 type="text"
                 :placeholder="options.defaultAbilities"
-                class="w-full form-control form-input form-input-bordered"
+                class="w-full form-control form-input form-control-bordered"
               />
               <p>
                 {{ __("Comma separated list of abilities to apply to token.") }}

@@ -33,13 +33,13 @@
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-vue": "^9.1.1",
     "laravel-mix": "^6.0.49",
+    "laravel-nova-ui": "^0.4.12",
+    "luxon": "^3.4.4",
     "postcss": "^8.4.14",
     "prettier": "^2.7.1",
     "pretty-quick": "^3.1.3",
     "semantic-release": "^21.0.2",
     "vue-loader": "^17.1.1"
   },
-  "dependencies": {
-    "luxon": "^3.3.0"
-  }
+  "dependencies": {}
 }

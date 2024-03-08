@@ -8,24 +8,24 @@
         <ModalContent>
           <div class="flex flex-col">
             <div class="flex flex-col space-y-2">
-              <div class="text-lg bg-gray-100 rounded p-4">
-                <button
-                  v-tooltip="__('Copy to clipboard')"
-                  type="button"
-                  class="flex items-center justify-between w-full hover:bg-gray-50 dark:hover:bg-gray-900 text-gray-500 dark:text-gray-400 hover:text-gray-500 active:text-gray-600 rounded-lg px-1 -mx-1"
-                  @click.prevent.stop="copyValueToClipboard(newToken)"
-                >
-                  <span ref="theFieldValue">
-                    {{ newToken }}
-                  </span>
-
-                  <Icon
-                    class="text-gray-500 dark:text-gray-400 ml-1"
-                    :solid="true"
-                    type="clipboard"
-                    width="14"
-                  />
-                </button>
+              <div class="flex items-center justify-between space-x-2">
+                <input
+                  readonly
+                  class="w-full form-control form-input"
+                  type="text"
+                  :value="newToken"
+                  data-disabled
+                />
+                <IconButton
+                  v-tooltip="{
+                    content: __('Copied to clipboard'),
+                    triggers: ['click'],
+                    placement: 'right',
+                    autoHide: true,
+                  }"
+                  icon-type="clipboard"
+                  @click.prevent.stop="copyValueToClipboard"
+                />
               </div>
               <HelpText class="mt-2 help-text-error">
                 {{
@@ -64,11 +64,11 @@ export default {
     handleConfirmed() {
       this.$emit("confirmed");
     },
-    copyValueToClipboard(value) {
+    copyValueToClipboard() {
       if (navigator.clipboard) {
-        navigator.clipboard.writeText(value);
+        navigator.clipboard.writeText(this.newToken);
       } else if (window.clipboardData) {
-        window.clipboardData.setData("Text", value);
+        window.clipboardData.setData("Text", this.newToken);
       } else {
         const input = document.createElement("input");
         const [scrollTop, scrollLeft] = [
@@ -76,7 +76,7 @@ export default {
           document.documentElement.scrollLeft,
         ];
         document.body.appendChild(input);
-        input.value = value;
+        input.value = this.newToken;
         input.focus();
         input.select();
         document.documentElement.scrollTop = scrollTop;
